@@ -1,0 +1,14 @@
+{
+    "liveSassCompile.settings.showOutputWindowOn": "None",
+    "liveSassCompile.settings.useNewCompiler": false,
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "/css"
+        }
+    ],
+    "liveSassCompile.settings.includeItems": [
+        "/scss/**/*.scss"  
+    ],
+}
