@@ -1,0 +1,16 @@
+$md-breakpoint: map-get($grid-breakpoints, md);
+
+.background-container {
+    position: fixed;
+    top: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+    width: 100vw;
+
+    .background-image {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+}
