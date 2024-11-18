@@ -1,22 +1,21 @@
+
 .background-container {
     position: relative;
     margin: 0 auto; // Center the container without transform
     z-index: -1;
     width: 100%;
-    height: 50vw;
     top: 0;
 
-    @include media-breakpoint-up(lg) {
-        height: 500px;
-    }
+
+    max-height: min(500px, calc(100vw * (1 / var(--aspect-ratio)) - 30px));
+    height: 50vw;
 
     .background-image {
         position: fixed;
         object-fit: contain;
         width: 100%;
-
         @include media-breakpoint-up(lg) {
-            transform: translateY(-10%);
+            transform: translateY(-8%);
         }
     }
 }
@@ -26,6 +25,7 @@
     width: 100%;
 
     padding-top: 2rem;
+    padding-bottom: 5rem;
 
     @include media-breakpoint-only(xs) {
         padding-top: 1.5rem;

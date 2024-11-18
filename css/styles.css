@@ -34,13 +34,9 @@
   margin: 0 auto;
   z-index: -1;
   width: 100%;
-  height: 50vw;
   top: 0;
-}
-@media (min-width: 992px) {
-  .background-container {
-    height: 500px;
-  }
+  max-height: min(500px, 100vw * 1 / var(--aspect-ratio) - 30px);
+  height: 50vw;
 }
 .background-container .background-image {
   position: fixed;
@@ -50,7 +46,7 @@
 }
 @media (min-width: 992px) {
   .background-container .background-image {
-    transform: translateY(-10%);
+    transform: translateY(-8%);
   }
 }
 
@@ -58,6 +54,7 @@
   background-color: white;
   width: 100%;
   padding-top: 2rem;
+  padding-bottom: 5rem;
 }
 @media (max-width: 575.98px) {
   .article-container {
