@@ -19,10 +19,6 @@
         position: fixed;
         object-fit: contain;
         width: 100%;
-
-        @include media-breakpoint-up(lg) {
-            object-fit: cover;
-        }
     }
 
     @include media-breakpoint-up(lg) {
