@@ -82,7 +82,7 @@
             }
         }
 
-        @include media-breakpoint-up(md) {
+        @include media-breakpoint-up(lg) {
             .news-card:first-child {
                 flex-direction: row;
 

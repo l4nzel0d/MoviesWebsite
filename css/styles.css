@@ -160,7 +160,7 @@
     font-size: 1.8rem;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .news-dashboard-container .news-grid .news-card:first-child {
     flex-direction: row;
   }
