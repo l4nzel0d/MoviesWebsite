@@ -27,12 +27,13 @@
     .news-grid {
         display: grid;
         gap: 1rem;
-        grid-auto-rows: minmax(20rem, auto);
+        grid-auto-rows: auto;
 
         .news-card {
             display: flex;
             flex-direction: column;
-            height: 100%;
+            min-height: 20rem;
+            max-height: auto;
             width: 100%;
             position: relative;
             border-radius: 1rem;
@@ -54,6 +55,7 @@
             }
 
             .news-card-headline-portion {
+                height: max-content;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -84,6 +86,7 @@
 
                 .news-card-headline-portion {
                     width: 50%;
+                    height: 100%;
 
                     h3 {
                         font-size: 1.8rem;
@@ -111,7 +114,7 @@
             grid-template-columns: repeat(2, 1fr);
         }
 
-        @include media-breakpoint-down(xs) {
+        @include media-breakpoint-down(sm) {
             grid-template-columns: repeat(1, 1fr);
         }
     }
