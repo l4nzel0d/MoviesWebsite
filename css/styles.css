@@ -74,6 +74,9 @@
     gap: 1rem;
   }
 }
+.article-container .article-content h1 {
+  font-weight: 600;
+}
 
 * {
   margin: 0;

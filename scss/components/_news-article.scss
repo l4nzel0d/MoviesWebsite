@@ -19,7 +19,6 @@
             transform: translateY(-10%);
         }
     }
-
 }
 
 .article-container {
@@ -39,6 +38,10 @@
 
         @include media-breakpoint-only(xs) {
             gap: 1rem;
+        }
+
+        h1 {
+            font-weight: 600;
         }
     }
 }
