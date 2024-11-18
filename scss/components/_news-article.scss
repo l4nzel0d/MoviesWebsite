@@ -1,31 +1,25 @@
-// header {
-//     visibility: hidden;
-// }
-
 .background-container {
     position: relative;
     margin: 0 auto; // Center the container without transform
     z-index: -1;
     width: 100%;
-    height: 40vw;
-    // background-image: url("/assets/images/Article_Img_Gladiator2.jpg");
-    // background-repeat: no-repeat;
-    // background-attachment: fixed; // Keeps the background fixed
-    // background-size: contain;
-    // background-position: center 4rem;
+    height: 50vw;
     top: 0;
+
+    @include media-breakpoint-up(lg) {
+        height: 500px;
+    }
 
     .background-image {
         position: fixed;
         object-fit: contain;
         width: 100%;
+
+        @include media-breakpoint-up(lg) {
+            transform: translateY(-10%);
+        }
     }
 
-    @include media-breakpoint-up(lg) {
-        height: 500px;
-        // background-size: cover;
-        // background-position: center top;
-    }
 }
 
 .article-container {
