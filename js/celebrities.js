@@ -22,7 +22,7 @@ function populateCelebrityCards() {
                 listItem.innerHTML = `
                 <div class="celebrity-card">
                     <div class="celebrity-image-wrapper">
-                        <img src="${data.imgPath}" alt="" class="celebrity-image">
+                        <img src="${data.imgPath}" alt="" class="celebrity-image" id="${celebrityId}-img">
                     </div>
                     <div class="celebrity-text-wrapper">
                         <div class="firstname">${data.firstName}</div>
@@ -45,38 +45,56 @@ function populateCelebrityCards() {
     return Promise.all(fetchPromises); // Return a promise that resolves when all fetches are complete
 }
 
-// Function to initialize LightSlider
-function initializeLightSlider() {
-    $(".lightSlider").lightSlider({
-        loop: true,
-        pager: false,
-        item: 6,
-        responsive: [
-            {
-                breakpoint: 2200,
-                settings: { item: 6 },
-            },
-            {
-                breakpoint: 1400,
-                settings: { item: 6 },
-            },
-            {
-                breakpoint: 1242,
-                settings: { item: 5 },
-            },
-            {
-                breakpoint: 992,
-                settings: { item: 4 },
-            },
-            {
-                breakpoint: 768,
-                settings: { item: 3 },
-            },
-            {
-                breakpoint: 576,
-                settings: { item: 2 },
-            },
-        ],
+const commonConfig = {
+    loop: true,
+    auto: true,
+    pauseOnHover: true,
+    pager: false,
+    item: 6,
+    responsive: [
+        {
+            breakpoint: 2200,
+            settings: { item: 6 },
+        },
+        {
+            breakpoint: 1400,
+            settings: { item: 6 },
+        },
+        {
+            breakpoint: 1242,
+            settings: { item: 5 },
+        },
+        {
+            breakpoint: 992,
+            settings: { item: 4 },
+        },
+        {
+            breakpoint: 768,
+            settings: { item: 3 },
+        },
+        {
+            breakpoint: 576,
+            settings: { item: 2 },
+        },
+    ],
+};
+
+function initializeLightSlider(selector, config) {
+    $(selector).lightSlider(config);
+}
+
+function initializeSliders() {
+    initializeLightSlider("#lightSliderPopular", {
+        ...commonConfig,
+        pause: 3000,
+        speed: 1800,
+    });
+
+    initializeLightSlider("#lightSliderBornToday", {
+        ...commonConfig,
+        pause: 3000,
+        speed: 1600,
+        slideEnd: true,
     });
 }
 
@@ -85,7 +103,7 @@ $(document).ready(function () {
     populateCelebrityCards()
         .then(() => {
             console.log("Celebrity cards have been populated.");
-            initializeLightSlider(); // Initialize LightSlider after the cards are populated
+            initializeSliders();
         })
         .catch((error) => {
             console.error(
@@ -98,7 +116,7 @@ $(document).ready(function () {
     $(document).on(
         "fullscreenchange webkitfullscreenchange mozfullscreenchange MSFullscreenChange",
         function () {
-            initializeLightSlider();
+            initializeSliders();
         }
     );
 });

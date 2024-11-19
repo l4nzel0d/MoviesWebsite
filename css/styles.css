@@ -318,6 +318,13 @@
   height: 160px !important;
 }
 
+.celebrities-main .celebrities-wrapper .celebrities-slider-wrapper .celebrity-card .celebrity-image-wrapper .celebrity-image#Margaret-Qualley-img {
+  transform: scale(1.8) translateY(8%);
+}
+.celebrities-main .celebrities-wrapper .celebrities-slider-wrapper .celebrity-card .celebrity-image-wrapper .celebrity-image#Paul-Mescal-img {
+  transform: scale(2) translateY(28%);
+}
+
 * {
   margin: 0;
   padding: 0;

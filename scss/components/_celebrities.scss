@@ -104,3 +104,13 @@ $celebrity-card-height: 300px;
 @include media-breakpoint-down(xs) {
     @include scale-card(.8);
 }
+
+.celebrities-main .celebrities-wrapper .celebrities-slider-wrapper .celebrity-card .celebrity-image-wrapper .celebrity-image {
+    &#Margaret-Qualley-img {
+        transform: scale(1.8) translateY(8%);
+    }
+
+    &#Paul-Mescal-img {
+        transform: scale(2) translateY(28%);
+    }
+}
