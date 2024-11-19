@@ -88,6 +88,17 @@ $celebrity-card-height: 300px;
     }
 }
 
+.born-today-and-date-wrapper {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+
+    .month-and-day-title {
+        font-size: 2rem;
+        color: $primary-color
+    }
+}
+
 @include scale-card(.9);
 
 @include media-breakpoint-down(xs) {

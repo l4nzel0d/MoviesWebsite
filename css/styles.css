@@ -292,6 +292,16 @@
   margin-top: -0.5rem;
 }
 
+.born-today-and-date-wrapper {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+}
+.born-today-and-date-wrapper .month-and-day-title {
+  font-size: 2rem;
+  color: #032541;
+}
+
 .celebrity-card {
   width: 180px !important;
 }
