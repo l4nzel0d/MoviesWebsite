@@ -289,7 +289,12 @@
   margin-top: -0.5rem;
 }
 .celebrities-main .celebrities-slider-wrapper .celebrity-card .celebrity-text-wrapper :nth-child(3) {
-  margin-top: -0.5rem;
+  margin-top: -0.3rem;
+}
+.celebrities-main .celebrities-slider-wrapper .celebrity-card .celebrity-text-wrapper .age {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
 }
 
 .born-today-and-date-wrapper {
@@ -310,14 +315,36 @@
   height: 180px !important;
 }
 
-.celebrity-card {
-  width: 160px !important;
+@media (max-width: 575.98px) {
+  .celebrity-card {
+    width: 160px !important;
+  }
+  .celebrity-card .celebrity-image-wrapper {
+    width: 160px !important;
+    height: 160px !important;
+  }
+  .celebrities-main .celebrities-wrapper .section-title {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.7rem;
+    position: relative;
+    width: -moz-max-content;
+    width: max-content;
+    color: #032541;
+  }
+  .celebrities-main .celebrities-wrapper .section-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0.17rem;
+    left: 0.085rem;
+    right: 0rem;
+    height: 0.2125rem;
+    background-color: #032541;
+  }
+  .celebrities-main .celebrities-wrapper .month-and-day-title {
+    font-size: 1.7rem;
+  }
 }
-.celebrity-card .celebrity-image-wrapper {
-  width: 160px !important;
-  height: 160px !important;
-}
-
 .celebrities-main .celebrities-wrapper .celebrities-slider-wrapper .celebrity-card .celebrity-image-wrapper .celebrity-image#Margaret-Qualley-img {
   transform: scale(1.8) translateY(8%);
 }

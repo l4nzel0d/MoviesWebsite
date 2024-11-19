@@ -81,7 +81,13 @@ $celebrity-card-height: 300px;
                     margin-top: -0.5rem;
                 }
                 :nth-child(3) {
-                    margin-top: -0.5rem;
+                    margin-top: -0.3rem;
+                }
+
+                .age {
+                    font-style: italic;
+                    font-weight: 400;
+                    font-size: 18px;
                 }
             }
         }
@@ -101,8 +107,18 @@ $celebrity-card-height: 300px;
 
 @include scale-card(.9);
 
-@include media-breakpoint-down(xs) {
+@include media-breakpoint-down(sm) {
     @include scale-card(.8);
+    .celebrities-main {
+        .celebrities-wrapper {
+            .section-title {
+                @include section-title(1.7rem); 
+            }
+            .month-and-day-title {
+                font-size: 1.7rem;
+            }
+        }
+    }
 }
 
 .celebrities-main .celebrities-wrapper .celebrities-slider-wrapper .celebrity-card .celebrity-image-wrapper .celebrity-image {

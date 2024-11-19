@@ -54,6 +54,7 @@ const commonConfig = {
     pauseOnHover: true,
     pager: false,
     item: 6,
+    controls: false,
     responsive: [
         {
             breakpoint: 2200,
