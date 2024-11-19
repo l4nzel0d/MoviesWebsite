@@ -10,7 +10,7 @@ const articleId = urlParams.get("article"); // e.g., ?article=article1
 // Function to load the article content from JSON
 function loadArticle(articleId) {
     console.log(articleId);
-    fetch(`data/articles/${articleId}.json`)
+    fetch(`data/articles/${articleId}-Article.json`)
         .then((response) => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);

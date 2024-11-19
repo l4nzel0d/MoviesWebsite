@@ -7,7 +7,7 @@ function populateNewsCards() {
     newsCards.forEach((card) => {
         const articleId = card.getAttribute("article-id");
 
-        fetch(`${articlesPath}${articleId}.json`)
+        fetch(`${articlesPath}${articleId}-Article.json`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error(`Failed to fetch article: ${articleId}`);

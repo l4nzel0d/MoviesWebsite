@@ -7,8 +7,8 @@ def main():
         sys.exit(1)
     
     article_name = sys.argv[1]
-    input_file_name = f"{article_name}.txt"
-    output_file_name = f"{article_name}Article.json"
+    input_file_name = f"utilities/make-articles-program/input-files/{article_name}.txt"
+    output_file_name = f"data/articles/{article_name}-Article.json"
     img_path = f"data/articles/{article_name}-Article-Image.jpg"
 
     try:
