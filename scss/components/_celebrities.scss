@@ -1,0 +1,7 @@
+.celebrities-main {
+    margin-top: 5rem;
+
+    .section-title {
+        @include section-title(2rem);
+    }
+}

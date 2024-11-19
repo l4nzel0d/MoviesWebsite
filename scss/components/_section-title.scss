@@ -1,0 +1,25 @@
+@mixin section-title($font-size) {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: $font-size;
+    position: relative;
+    width: max-content;
+    color: $primary-color;
+
+    &::after {
+        content: "";
+        position: absolute;
+
+        // Proportional calculations based on $font-size
+        bottom: $font-size * 0.1; // 0.4rem is 10% of 4rem
+        left: $font-size * 0.05; // 0.2rem is 5% of 4rem
+        right: 0rem;
+        height: $font-size * 0.125; // 0.5rem is 12.5% of 4rem
+        background-color: $primary-color;
+    }
+}
+
+
+.section-title {
+    @include section-title(4rem);
+}
