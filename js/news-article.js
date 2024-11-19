@@ -21,7 +21,7 @@ function loadArticle(articleId) {
             // Populate the article page with the data from the JSON file
             document.querySelector("#article-page").innerHTML = `
                 <div class="background-container">
-                    <img src="${data.ImgPath}" class="background-image" />
+                    <img src="${data.ImgPath}" class="background-image" data-article-id="${articleId}"/>
                 </div>
                 <div class="article-container">
                     <div class="container article-content">

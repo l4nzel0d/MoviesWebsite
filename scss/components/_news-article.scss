@@ -12,9 +12,6 @@
         position: fixed;
         object-fit: contain;
         width: 100%;
-        @include media-breakpoint-up(lg) {
-            transform: translateY(-8%);
-        }
     }
 }
 
@@ -44,6 +41,23 @@
 
         h1 {
             font-weight: 600;
+        }
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .background-image {
+        &[data-article-id="Black-Panther"] {
+            transform: translateY(-6%);
+        }
+        &[data-article-id="Gladiator-2"] {
+            transform: translateY(-10%);
+        }
+        &[data-article-id="Arcane"] {
+            transform: translateY(-5%);
+        }
+        &[data-article-id="La-La-Land"] {
+            transform: translateY(-6%);
         }
     }
 }

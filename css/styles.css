@@ -44,11 +44,6 @@
      object-fit: contain;
   width: 100%;
 }
-@media (min-width: 992px) {
-  .background-container .background-image {
-    transform: translateY(-8%);
-  }
-}
 
 .article-container {
   background-color: white;
@@ -76,6 +71,20 @@
   font-weight: 600;
 }
 
+@media (min-width: 1200px) {
+  .background-image[data-article-id=Black-Panther] {
+    transform: translateY(-6%);
+  }
+  .background-image[data-article-id=Gladiator-2] {
+    transform: translateY(-10%);
+  }
+  .background-image[data-article-id=Arcane] {
+    transform: translateY(-5%);
+  }
+  .background-image[data-article-id=La-La-Land] {
+    transform: translateY(-6%);
+  }
+}
 .news-dashboard-container {
   margin: 5rem 0;
   display: flex;
