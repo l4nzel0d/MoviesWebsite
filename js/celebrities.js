@@ -2,20 +2,25 @@ const celebrityObjectsPath = "data/celebrities/";
 
 // Function to populate celebrity cards
 function populateCelebrityCards() {
-    const celebrityCards = document.querySelectorAll(".celebrity-card[data-celebrity-id]");
+    const celebrityListItems = document.querySelectorAll(
+        ".celebrity-list-item[data-celebrity-id]"
+    );
     const fetchPromises = [];
 
-    celebrityCards.forEach((card) => {
-        const celebrityId = card.getAttribute("data-celebrity-id");
+    celebrityListItems.forEach((listItem) => {
+        const celebrityId = listItem.getAttribute("data-celebrity-id");
         const fetchPromise = fetch(`${celebrityObjectsPath}${celebrityId}.json`)
             .then((response) => {
                 if (!response.ok) {
-                    throw new Error(`Failed to fetch celebrity data: ${celebrityId}`);
+                    throw new Error(
+                        `Failed to fetch celebrity data: ${celebrityId}`
+                    );
                 }
                 return response.json();
             })
             .then((data) => {
-                card.innerHTML = `
+                listItem.innerHTML = `
+                <div class="celebrity-card">
                     <div class="celebrity-image-wrapper">
                         <img src="${data.imgPath}" alt="" class="celebrity-image">
                     </div>
@@ -24,10 +29,14 @@ function populateCelebrityCards() {
                         <div class="last">${data.lastName}</div>
                         <div class="age">${data.age}</div>
                     </div>
+                </div>
                 `;
             })
             .catch((error) => {
-                console.error(`Error loading info about celebrity (${celebrityId}):`, error);
+                console.error(
+                    `Error loading info about celebrity (${celebrityId}):`,
+                    error
+                );
             });
 
         fetchPromises.push(fetchPromise);
@@ -79,11 +88,17 @@ $(document).ready(function () {
             initializeLightSlider(); // Initialize LightSlider after the cards are populated
         })
         .catch((error) => {
-            console.error("An error occurred while populating celebrity cards:", error);
+            console.error(
+                "An error occurred while populating celebrity cards:",
+                error
+            );
         });
 
     // Reinitialize LightSlider on fullscreen changes
-    $(document).on("fullscreenchange webkitfullscreenchange mozfullscreenchange MSFullscreenChange", function () {
-        initializeLightSlider();
-    });
+    $(document).on(
+        "fullscreenchange webkitfullscreenchange mozfullscreenchange MSFullscreenChange",
+        function () {
+            initializeLightSlider();
+        }
+    );
 });
