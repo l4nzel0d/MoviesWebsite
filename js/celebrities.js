@@ -19,6 +19,9 @@ function populateCelebrityCards() {
                 return response.json();
             })
             .then((data) => {
+
+                const isPartOfBornToday = listItem.closest("#lightSliderBornToday") !== null;
+
                 listItem.innerHTML = `
                 <div class="celebrity-card">
                     <div class="celebrity-image-wrapper">
@@ -27,7 +30,7 @@ function populateCelebrityCards() {
                     <div class="celebrity-text-wrapper">
                         <div class="firstname">${data.firstName}</div>
                         <div class="last">${data.lastName}</div>
-                        <div class="age">${data.age}</div>
+                        ${isPartOfBornToday ? `<div class="age">${data.age}</div>` : ""}
                     </div>
                 </div>
                 `;
