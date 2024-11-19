@@ -11,7 +11,12 @@ const articleId = urlParams.get("article"); // e.g., ?article=article1
 function loadArticle(articleId) {
     console.log(articleId);
     fetch(`data/articles/${articleId}.json`)
-        .then((response) => response.json())
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then((data) => {
             // Populate the article page with the data from the JSON file
             document.querySelector("#article-page").innerHTML = `
@@ -25,6 +30,14 @@ function loadArticle(articleId) {
                     </div>
                 </div>
             `;
+
+            // Ensure the image is ready before setting the aspect ratio
+            const img = document.querySelector(".background-image");
+            if (img.complete) {
+                setAspectRatio(img);
+            } else {
+                img.onload = () => setAspectRatio(img);
+            }
         })
         .catch((error) => console.error("Error loading article:", error));
 }
@@ -32,15 +45,6 @@ function loadArticle(articleId) {
 // Load the article based on the URL parameter
 if (articleId) {
     loadArticle(articleId);
-    document.addEventListener("DOMContentLoaded", function () {
-        const img = document.querySelector(".background-image");
-    
-        if (img.complete) {
-            setAspectRatio(img);
-        } else {
-            img.onload = () => setAspectRatio(img);
-        }
-    });
 } else {
     console.log("No article specified in the URL");
 }
