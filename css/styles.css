@@ -237,6 +237,54 @@
   height: 0.25rem;
   background-color: #032541;
 }
+.celebrities-main .celebrities-slider-wrapper {
+  margin-top: 1rem;
+  width: 100vw;
+}
+.celebrities-main .celebrities-slider-wrapper #lightSlider {
+  width: 100%;
+}
+.celebrities-main .celebrities-slider-wrapper #lightSlider li {
+  width: auto;
+}
+.celebrities-main .celebrities-slider-wrapper .celebrity-card {
+  width: 200px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+.celebrities-main .celebrities-slider-wrapper .celebrity-card .celebrity-image-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.celebrities-main .celebrities-slider-wrapper .celebrity-card .celebrity-image-wrapper .celebrity-image {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transform: translateY(20px);
+}
+.celebrities-main .celebrities-slider-wrapper .celebrity-card .celebrity-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 500;
+  margin-top: 0;
+}
+.celebrities-main .celebrities-slider-wrapper .celebrity-card .celebrity-text-wrapper :nth-child(2) {
+  margin-top: -0.5rem;
+}
+.celebrities-main .celebrities-slider-wrapper .celebrity-card .celebrity-text-wrapper :nth-child(3) {
+  margin-top: -0.5rem;
+}
 
 * {
   margin: 0;

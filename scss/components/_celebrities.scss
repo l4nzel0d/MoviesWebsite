@@ -1,7 +1,67 @@
+$celebrity-card-width: 200px;
+
 .celebrities-main {
     margin-top: 5rem;
 
     .section-title {
         @include section-title(2rem);
+    }
+
+    .celebrities-slider-wrapper {
+        margin-top: 1rem;
+        width: 100vw;
+
+        #lightSlider {
+            width: 100%;
+
+            li {
+                width: auto;
+            }
+        }
+
+        .celebrity-card {
+            width: $celebrity-card-width;
+            height: 300px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+
+            .celebrity-image-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                width: $celebrity-card-width;
+                height: $celebrity-card-width;
+                border-radius: 50%;
+                overflow: hidden;
+
+                .celebrity-image {
+                    width: 100%;
+                    object-fit: cover;
+                    transform: translateY(20px);
+                }
+            }
+
+            .celebrity-text-wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+
+                font-size: 22px;
+                font-weight: 500;
+
+                margin-top: 0;
+                :nth-child(2) {
+                    margin-top: -0.5rem;
+                }
+                :nth-child(3) {
+                    margin-top: -0.5rem;
+                }
+            }
+        }
     }
 }
