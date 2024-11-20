@@ -30,3 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     );
 });
+
+window.addEventListener("focusout", function () {
+    if (window.innerHeight < document.documentElement.clientHeight) {
+        window.scrollTo(0, 0);
+    }
+});
