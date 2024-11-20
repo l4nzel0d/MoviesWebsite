@@ -154,7 +154,14 @@
         .second-page-text-and-emoji-wrapper {
             user-select: none;
             .emoji-wrapper {
-                font-size: 7rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+                .emoji-img {
+                    width: 7rem;  
+                    height: auto; 
+                }
             }
         }
 
