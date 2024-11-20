@@ -399,6 +399,15 @@
   display: flex;
   flex-direction: column;
   width: 450px;
+  margin-top: 3rem;
+  width: 95%;
+  max-width: 450px;
+}
+.sign-in-form label {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  cursor: pointer;
 }
 .sign-in-form .sign-in-form-title {
   font-weight: 600;
@@ -423,6 +432,14 @@
 .sign-in-form .form-check .form-check-input {
   width: 20px;
   height: 20px;
+}
+.sign-in-form .form-check .form-check-input:checked {
+  background-color: #032541;
+  border-color: #032541;
+}
+.sign-in-form .form-check .form-check-input:focus {
+  border-color: #032541;
+  box-shadow: 0 0 0 0.25rem rgba(5, 58, 101, 0.4);
 }
 .sign-in-form .sign-in-bottom-section {
   display: flex;
