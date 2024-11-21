@@ -9,108 +9,103 @@
     </head>
     <body class="sign-in-body">
         <main class="sign-in-main">
-            <div class="container">
-                <div
-                    class="d-flex flex-column justify-content-center align-items-center"
-                >
-                    <form class="sign-in-form" novalidate>
-                        <div
-                            class="form-main-page"
-                            id="form-main-page"
-                        >
-                            <h2 class="sign-in-form-title mb-3 mt-1">
-                                Sign in
-                            </h2>
-                            <div class="email-and-password-section-wrapper">
-                                <div class="mb-3">
-                                    <label
-                                        for="exampleInputEmail1"
-                                        class="form-label"
-                                        >Email</label
-                                    >
-                                    <input
-                                        type="email"
-                                        class="form-control"
-                                        id="exampleInputEmail1"
-                                        aria-describedby="emailHelp"
-                                        required
-                                    />
-                                    <div id="emailHelp" class="form-text">
-                                        We'll never share your email with anyone
-                                        else.
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label
-                                        for="exampleInputPassword1"
-                                        class="form-label"
-                                        >Password</label
-                                    >
-                                    <input
-                                        type="password"
-                                        class="form-control"
-                                        id="exampleInputPassword1"
-                                        required
-                                    />
-                                </div>
-                            </div>
-                            <div class="mb-3 form-check">
-                                <input
-                                    type="checkbox"
-                                    class="form-check-input"
-                                    id="exampleCheck1"
-                                />
-                                <label class="" for="exampleCheck1"
-                                    >Keep me signed in</label
-                                >
-                            </div>
-                            <div class="sign-in-bottom-section">
-                                <button
-                                    type=""
-                                    class="btn btn-primary d-block sign-in-form-button primary-color-button"
-                                    id="sign-in-button"
-                                >
-                                    Sign in
-                                </button>
-                                <div class="new-here-section">
-                                    <div class="thin-line"></div>
-                                    <div class="new-here-text">New here?</div>
-                                    <div class="thin-line"></div>
-                                </div>
-                                <button
-                                    type=""
-                                    class="btn btn-primary d-block sign-in-form-button"
-                                    id="create-new-account-button"
-                                >
-                                    Create new account
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="form-second-page" id="form-second-page" style="display: none;">
-                            <div class="second-page-text-and-emoji-wrapper">
-                                <h1 class="emoji-wrapper">
-                                    <img src="data/sign-in/emoji.svg" alt="Emoji" class="emoji-img" />
-                                </h1>
-                                <h3 class="text-wrapper">
-                                    <i>Whoops...</i> looks like the
-                                    authorization feature isn’t quite ready yet.
-                                </h3>
-                                <h3 class="text-wrapper">
-                                    But don’t worry,<br />
-                                    it’ll be up soon!
-                                </h3>
-                            </div>
-                            <button
-                                class="btn btn-primary primary-color-button sign-in-form-button"
-                                id="go-back-button"
+            <form class="sign-in-form" novalidate>
+                <div class="form-main-page" id="form-main-page">
+                    <h2 class="sign-in-form-title mb-3 mt-1">Sign in</h2>
+                    <div class="email-and-password-section-wrapper">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label"
+                                >Email</label
                             >
-                                Go back
-                            </button>
+                            <input
+                                type="email"
+                                class="form-control"
+                                id="exampleInputEmail1"
+                                aria-describedby="emailHelp"
+                                required
+                            />
+                            <div id="emailHelp" class="form-text">
+                                We'll never share your email with anyone else.
+                            </div>
                         </div>
-                    </form>
+                        <div class="mb-3">
+                            <label
+                                for="exampleInputPassword1"
+                                class="form-label"
+                                >Password</label
+                            >
+                            <input
+                                type="password"
+                                class="form-control"
+                                id="exampleInputPassword1"
+                                required
+                            />
+                        </div>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input
+                            type="checkbox"
+                            class="form-check-input"
+                            id="exampleCheck1"
+                        />
+                        <label class="" for="exampleCheck1"
+                            >Keep me signed in</label
+                        >
+                    </div>
+                    <div class="sign-in-bottom-section">
+                        <button
+                            type="button"
+                            class="btn btn-primary d-block sign-in-form-button primary-color-button"
+                            id="sign-in-button"
+                        >
+                            Sign in
+                        </button>
+                        <div class="new-here-section">
+                            <div class="thin-line"></div>
+                            <div class="new-here-text">New here?</div>
+                            <div class="thin-line"></div>
+                        </div>
+                        <button
+                            type="button"
+                            class="btn btn-primary d-block sign-in-form-button"
+                            id="create-new-account-button"
+                        >
+                            Create new account
+                        </button>
+                    </div>
                 </div>
-            </div>
+
+                <div
+                    class="form-second-page"
+                    id="form-second-page"
+                    style="display: none"
+                >
+                    <div class="second-page-text-and-emoji-wrapper">
+                        <h1 class="emoji-wrapper">
+                            <img
+                                src="data/sign-in/emoji.svg"
+                                alt="Emoji"
+                                class="emoji-img"
+                            />
+                        </h1>
+                        <h3 class="text-wrapper">
+                            <i>Whoops...</i> looks like the authorization
+                            feature isn’t quite ready yet.
+                        </h3>
+                        <h3 class="text-wrapper">
+                            But don’t worry,<br />
+                            it’ll be up soon!
+                        </h3>
+                    </div>
+                    <button
+                        type="button"
+                        class="btn btn-primary primary-color-button sign-in-form-button"
+                        id="go-back-button"
+                    >
+                        Go back
+                    </button>
+                </div>
+            </form>
             <!-- <div class="container-fluid">
                 <div class="background-wrapper">
                     <img

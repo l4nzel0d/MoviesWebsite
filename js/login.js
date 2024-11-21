@@ -1,15 +1,8 @@
-const form = document.querySelector("form");
-const emailAndPasswordSection = form.querySelector(
-    ".email-and-password-section-wrapper"
-);
-
-form.addEventListener("submit", (e) => {
-    if (!form.checkValidity()) {
-        e.preventDefault();
-    }
+document.addEventListener("DOMContentLoaded", () => {
+    initializeButtons();
 });
 
-document.addEventListener("DOMContentLoaded", () => {
+const initializeButtons = () => {
     const formMainPage = document.getElementById("form-main-page");
     const mainPageButtons = formMainPage.querySelectorAll(
         ".sign-in-form-button"
@@ -29,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
             formSecondPage.style.display = "flex";
         })
     );
-});
+};
 
 window.addEventListener("focusout", function () {
     if (window.innerHeight < document.documentElement.clientHeight) {
