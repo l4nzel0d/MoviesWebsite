@@ -37,6 +37,9 @@
   width: -moz-max-content;
   width: max-content;
   color: #032541;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .section-title::after {
   content: "";
@@ -232,6 +235,9 @@
   width: -moz-max-content;
   width: max-content;
   color: #032541;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .celebrities-main .section-title::after {
   content: "";
@@ -331,6 +337,9 @@
     width: -moz-max-content;
     width: max-content;
     color: #032541;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
   }
   .celebrities-main .celebrities-wrapper .section-title::after {
     content: "";

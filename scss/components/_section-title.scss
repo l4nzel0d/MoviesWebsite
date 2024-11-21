@@ -5,6 +5,7 @@
     position: relative;
     width: max-content;
     color: $primary-color;
+    user-select: none;
 
     &::after {
         content: "";
