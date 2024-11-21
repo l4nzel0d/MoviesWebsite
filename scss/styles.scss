@@ -1,3 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat";
+}
+
+body {
+    min-height: 100vh;
+}
+
+main {
+    padding-top: 72px;
+    // padding-bottom: 2rem;
+    min-height: 100vh;
+    width: 100%;
+}
+
 @mixin set-width-and-height($width, $height: $width) {
     width: $width;
     height: $height;
@@ -17,11 +35,4 @@
 @import "components/celebrities";
 @import "components/sign-in";
 
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Montserrat";
-}
 
