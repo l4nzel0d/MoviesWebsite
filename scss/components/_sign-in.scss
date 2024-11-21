@@ -13,7 +13,7 @@
     .background-wrapper {
         width: 100%;
         height: 100%;
-        display: flex;
+        display: none;
         justify-content: center;
         align-items: center;
         position: fixed;
@@ -22,17 +22,31 @@
         right: 0;
         overflow: hidden;
         z-index: -1;
-
+        
+        
         .background-image {
             @include media-breakpoint-only(xxl) {
                 width: 100%;
             }
-
+            
             z-index: -1;
             height: 100%;
             object-fit: cover;
         }
     }
+    
+    @include media-breakpoint-up(xl) {
+        align-items: flex-end;
+
+        .sign-in-form {
+            margin-right: 10vw;
+        }
+
+        .background-wrapper {
+            display: flex;
+        }
+    }
+
 }
 
 .sign-in-form {

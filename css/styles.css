@@ -367,7 +367,7 @@
 .sign-in-main .background-wrapper {
   width: 100%;
   height: 100%;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   position: fixed;
@@ -386,6 +386,17 @@
 @media (min-width: 1400px) {
   .sign-in-main .background-wrapper .background-image {
     width: 100%;
+  }
+}
+@media (min-width: 1200px) {
+  .sign-in-main {
+    align-items: flex-end;
+  }
+  .sign-in-main .sign-in-form {
+    margin-right: 10vw;
+  }
+  .sign-in-main .background-wrapper {
+    display: flex;
   }
 }
 
