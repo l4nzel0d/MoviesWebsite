@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
         bootstrapScript.id = bootstrapScriptId;
     }
 
+    
     const headerElement = document.createElement("header");
 
     headerElement.id = "header";
