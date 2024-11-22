@@ -19,6 +19,7 @@ $card-width: 150px;
         transform: translateX(0);
         opacity: 1;
         transition: all .5s ease;
+        pointer-events: none;
     }
     &.hidden::after {
         opacity: 0;
