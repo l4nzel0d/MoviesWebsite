@@ -37,14 +37,16 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         { href: "css/all.min.css", rel: "stylesheet" },
         { href: "css/fontawesome.min.css", rel: "stylesheet" },
+        { href: "favicon.svg", rel: "icon", type: "image/svg+xml"}
     ];
 
-    links.forEach(({ href, rel, integrity, crossorigin }) => {
+    links.forEach(({ href, rel, integrity, crossorigin, type }) => {
         const linkElement = document.createElement("link");
         linkElement.href = href;
         linkElement.rel = rel;
         if (integrity) linkElement.integrity = integrity;
         if (crossorigin) linkElement.crossOrigin = crossorigin;
+        if (type) linkElement.type = type;
         headElement.appendChild(linkElement);
     });
 });
