@@ -43,6 +43,9 @@ $spacer: 1rem;
     position: relative;
     padding-inline: $spacer;
 
+    @include media-breakpoint-up(sm) {
+        padding-top: 1rem;
+    }
 
 }
 
@@ -57,6 +60,8 @@ $spacer: 1rem;
         width: 100%;
         aspect-ratio: 2 / 3;
         border-radius: 17px;
+        transition: transform .3s ease;
+        box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .25);
     }
 
     .movie-card__title {
@@ -66,6 +71,17 @@ $spacer: 1rem;
         width: auto;
         text-align: center;
     }
+
+    @include media-breakpoint-up(sm) {
+        &:hover {
+            .movie-card__poster {
+                transform: scale(1.05);
+            }
+    
+            cursor: pointer;
+        }
+    }
+
 }
 
 .snaps-inline {
@@ -96,6 +112,14 @@ $spacer: 1rem;
     &:active {
         cursor: grabbing;
     }
+}
+
+.popular-sections-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 3rem;
+    margin-top: 1rem;
 }
 
 @include media-breakpoint-down(sm) {
