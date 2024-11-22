@@ -651,6 +651,7 @@ main {
 }
 .movie-card .movie-card__title {
   font-size: 1rem;
+  word-break: keep-all;
   font-weight: 500;
   width: auto;
   text-align: center;

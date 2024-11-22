@@ -37,6 +37,30 @@ TV_SHOW_NAMES = [
     "ted lasso",
     "succession",
     "modern family",
+    "Breaking Bad",
+    "Game of Thrones",
+    "The Sopranos",
+    "Sherlock",
+    "The Twilight Zone",
+    "Firefly",
+    "True Detective",
+    "Fargo",
+    "Stranger Things",
+    "Black Mirror",
+    "The Office (US)",
+    "The Crown",
+    "Mr. Robot",
+    "Better Call Saul",
+    "The Mandalorian",
+    "Westworld",
+    "Peaky Blinders",
+    "The Witcher",
+    "Narcos",
+    "Money Heist",
+    "The Boys",
+    "The Expanse",
+    "The Handmaid's Tale",
+    "Chernobyl"
 ]
 
 PROJECT_NAMES = TV_SHOW_NAMES + MOVIE_NAMES
@@ -79,12 +103,16 @@ def main():
             project_object["title"] = first_result.get(
                 "name", first_result.get("title")
             )
+
             print(project_object["title"])
-            project_object["poster_path"] = first_result["poster_path"]
             reference_book_object[project_object["id"]] = project_object["title"]
+
+
+            project_object["poster_path"] = first_result["poster_path"]
             if project_object["poster_path"]:  # Check if poster_path exists
                 poster_url = f"https://image.tmdb.org/t/p/original{project_object['poster_path']}"
                 file_name = f"data/projects/{project_object['title'].replace(" ", "_").replace(":", "")}.jpg"
+                project_object["poster_path_local"] = file_name
                 save_image(poster_url, file_name)
 
             project_object_path = f"data/projects/{project_object['id']}.json"
