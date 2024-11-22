@@ -43,9 +43,7 @@ $spacer: 1rem;
     position: relative;
     padding-inline: $spacer;
 
-    @include media-breakpoint-up(sm) {
-        padding-top: 1rem;
-    }
+    padding-top: 1rem;
 
 }
 

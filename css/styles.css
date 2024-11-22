@@ -635,11 +635,7 @@ main {
   grid-auto-columns: 150px;
   position: relative;
   padding-inline: 1rem;
-}
-@media (min-width: 576px) {
-  .media-scroller {
-    padding-top: 1rem;
-  }
+  padding-top: 1rem;
 }
 
 .movie-card {
