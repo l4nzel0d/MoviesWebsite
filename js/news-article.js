@@ -18,6 +18,7 @@ function loadArticle(articleId) {
             return response.json();
         })
         .then((data) => {
+            document.title = data.Headline;
             // Populate the article page with the data from the JSON file
             document.querySelector("#article-page").innerHTML = `
                 <div class="background-container">
