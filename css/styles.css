@@ -604,20 +604,22 @@ main {
 
 .media-scroller-wrapper {
   position: relative;
+  overflow: hidden;
 }
 .media-scroller-wrapper::after {
   position: absolute;
   content: "";
-  top: 0;
-  bottom: 0;
-  right: -5px;
-  width: 130px;
+  top: -2px;
+  bottom: 10px;
+  right: -10px;
+  width: 20vw;
+  max-width: 100px;
   background: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 255, 255) 90%);
   z-index: 100;
   transform: translateX(0);
   opacity: 1;
-  transition: all 0.5s ease;
   pointer-events: none;
+  transition: all 1s ease;
 }
 .media-scroller-wrapper.hidden::after {
   opacity: 0;
@@ -625,22 +627,25 @@ main {
 }
 
 .media-scroller {
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
   display: grid;
   gap: 1rem;
   grid-auto-flow: column;
   grid-auto-columns: 150px;
-  overflow-x: auto;
-  overscroll-behavior-inline: contain;
   position: relative;
+  padding-inline: 1rem;
 }
 
 .movie-card {
   display: grid;
   grid-template-rows: min-content;
   justify-items: center;
+  gap: 1rem;
+  width: 150px;
 }
 .movie-card .movie-card__poster {
-  width: 150px;
+  width: 100%;
   aspect-ratio: 2/3;
   border-radius: 17px;
 }
@@ -653,8 +658,43 @@ main {
 
 .snaps-inline {
   scroll-snap-type: inline mandatory;
+  scroll-padding-inline: calc(1rem - 3px);
 }
 
 .snaps-inline > * {
   scroll-snap-align: start;
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+  background-color: rgb(198, 198, 198);
+  border-radius: 8px;
+  margin: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  height: auto;
+  width: auto;
+  cursor: grab;
+  border-radius: 8px;
+  background-color: #032541;
+}
+::-webkit-scrollbar-thumb:active {
+  cursor: grabbing;
+}
+
+@media (max-width: 575.98px) {
+  .movie-card {
+    width: 150px;
+  }
+  .media-scroller {
+    gap: 0.5rem;
+    grid-auto-columns: 150px;
+    padding-inline: 0.5rem;
+  }
+  .snaps-inline {
+    scroll-snap-type: inline mandatory;
+    scroll-padding-inline: calc(0.5rem - 3px);
+  }
 }/*# sourceMappingURL=styles.css.map */

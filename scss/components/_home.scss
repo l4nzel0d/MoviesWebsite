@@ -1,50 +1,60 @@
 $card-width: 150px;
+$spacer: 1rem;
 
 .media-scroller-wrapper {
     position: relative;
-
+    overflow: hidden;
+    
     &::after {
         position: absolute;
         content: "";
-        top: 0;
-        bottom: 0;
-        right: -5px;
-        width: 130px;
+        top: -2px;
+        bottom: 10px;
+        right: -10px;
+        width: 20vw;
+        max-width: 100px;
+
         background: linear-gradient(
             to right,
             rgba(255, 255, 255, 0),
             rgba(255, 255, 255, 1) 90%,
-        );
-        z-index: 100;
-        transform: translateX(0);
-        opacity: 1;
-        transition: all .5s ease;
-        pointer-events: none;
+            );
+            z-index: 100;
+            transform: translateX(0);
+            opacity: 1;
+            pointer-events: none;
+            transition: all 1s ease;
+        }
+        &.hidden::after {
+            opacity: 0;
+            transform: translateX(50px);
     }
-    &.hidden::after {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-
+    
 }
 
 .media-scroller {
-    display: grid;
-    gap: 1rem;
-    grid-auto-flow: column;
-    grid-auto-columns: $card-width;
     overflow-x: auto;
     overscroll-behavior-inline: contain;
+    display: grid;
+    gap: $spacer;
+    grid-auto-flow: column;
+    grid-auto-columns: $card-width;
+
     position: relative;
+    padding-inline: $spacer;
+
+
 }
 
 .movie-card {
     display: grid;
     grid-template-rows: min-content;
     justify-items: center;
+    gap: 1rem;
+    width: $card-width;
 
     .movie-card__poster {
-        width: $card-width;
+        width: 100%;
         aspect-ratio: 2 / 3;
         border-radius: 17px;
     }
@@ -59,8 +69,51 @@ $card-width: 150px;
 
 .snaps-inline {
     scroll-snap-type: inline mandatory;
+    scroll-padding-inline: calc($spacer - 3px);
 }
 
 .snaps-inline > * {
     scroll-snap-align: start;
+}
+
+::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+    background-color: rgb(198, 198, 198);
+    border-radius: 8px;
+    margin: 1rem;
+    
+}
+
+::-webkit-scrollbar-thumb {
+    height: auto;
+    width: auto;
+    cursor: grab;
+    border-radius: 8px;
+    background-color: $primary-color;
+
+    &:active {
+        cursor: grabbing;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    $card-width-smaller: 150px;
+    $spacer-smaller: .5rem;
+
+    
+    .movie-card {
+        width: $card-width-smaller;
+    }
+
+    .media-scroller {
+        gap: .5rem;
+        grid-auto-columns: $card-width-smaller;
+        padding-inline: $spacer-smaller;
+    }
+
+    .snaps-inline {
+        scroll-snap-type: inline mandatory;
+        scroll-padding-inline: calc($spacer-smaller - 3px);
+    }
 }
