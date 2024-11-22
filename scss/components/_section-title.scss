@@ -20,7 +20,17 @@
     }
 }
 
-
+// Base class with default font size (4rem)
 .section-title {
     @include section-title(4rem);
+}
+
+// Modifier for font size 4rem
+.section-title--font-size-4 {
+    @include section-title(4rem);
+}
+
+// Modifier for font size 2rem
+.section-title--font-size-2 {
+    @include section-title(2rem);
 }
