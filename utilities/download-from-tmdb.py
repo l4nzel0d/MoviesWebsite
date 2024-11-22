@@ -4,6 +4,7 @@ import json
 import requests
 import urllib.parse
 
+PROJECTS_PATH = "data/projects/"
 
 load_dotenv()
 api_key = os.getenv("API_KEY")
@@ -21,11 +22,9 @@ MOVIE_NAMES = [
     "alien",
     "dune part 2",
     "knives out",
-    "lost in translation",
     "la la land",
     "dunkirk",
     "alien romulus",
-    "anora",
     "heretic",
 ]
 
@@ -69,6 +68,7 @@ PROJECT_NAMES = TV_SHOW_NAMES + MOVIE_NAMES
 
 def save_image(image_url, file_name):
     """Download and save an image from the given URL."""
+    os.makedirs(os.path.dirname(file_name), exist_ok=True)
     response = requests.get(
         image_url, stream=True
     )  # Use stream=True to handle large images
@@ -78,7 +78,6 @@ def save_image(image_url, file_name):
                 1024
             ):  # Write in chunks to avoid memory issues
                 file.write(chunk)
-        print(f"Image saved as {file_name}")
     else:
         print(f"Failed to download image from {image_url}")
 
@@ -86,7 +85,10 @@ def save_image(image_url, file_name):
 def main():
     headers = {"accept": "application/json", "Authorization": f"Bearer {bearer_token}"}
 
-    reference_book_object = {}
+    configuration = requests.get("https://api.themoviedb.org/3/configuration", headers=headers).json()
+    images_configuration = configuration["images"]
+
+    reference_book_object = {"Movies": {}, "TV Shows": {}}
 
     for project_name in PROJECT_NAMES:
         project_object = {}
@@ -100,33 +102,39 @@ def main():
         if data.get("results"):
             first_result = data["results"][0]
             project_object["id"] = first_result["id"]
-            project_object["title"] = first_result.get(
-                "name", first_result.get("title")
-            )
 
-            print(project_object["title"])
-            reference_book_object[project_object["id"]] = project_object["title"]
+            if 'title' in first_result:
+                project_object["title"] = first_result.get("title")
+                project_object["type"] = 'Movie'
+                reference_book_object["Movies"][project_object["id"]] = project_object["title"]
+            else:
+                project_object["title"] = first_result.get("name")
+                project_object["type"] = 'TV Show'
+                reference_book_object["TV Shows"][project_object["id"]] = project_object["title"]
 
 
             project_object["poster_path"] = first_result["poster_path"]
             if project_object["poster_path"]:  # Check if poster_path exists
-                poster_url = f"https://image.tmdb.org/t/p/original{project_object['poster_path']}"
-                file_name = f"data/projects/{project_object['title'].replace(" ", "_").replace(":", "")}.jpg"
-                project_object["poster_path_local"] = file_name
-                save_image(poster_url, file_name)
+                for size in images_configuration["poster_sizes"]:
+                    poster_url = f"https://image.tmdb.org/t/p/{size}{project_object['poster_path']}"
+                    file_name = f"{PROJECTS_PATH}{project_object['id']}/{project_object["id"]}_poster_{size}.jpg"
+                    project_object[f"poster_path_{size}_local"] = file_name
+                    save_image(poster_url, file_name)
 
-            project_object_path = f"data/projects/{project_object['id']}.json"
+            project_object_path = f"{PROJECTS_PATH}/{project_object['id']}/{project_object['id']}.json"
+            os.makedirs(os.path.dirname(project_object_path), exist_ok=True)
+
             with open(project_object_path, "w") as json_file:
                 json.dump(project_object, json_file, indent=4)
 
             print(
-                f"Project: {project_object['title']}, ID: {project_object['id']}, poster_path: {project_object['poster_path']}"
+                f"Project: {project_object['title']}, ID: {project_object['id']} - data saved"
             )
 
         else:
             print(f"No results found for Project: {project_name}")
 
-    with open("data/projects/reference_book_object.json", "w") as reference_json:
+    with open(f"{PROJECTS_PATH}/reference_book_object.json", "w") as reference_json:
         json.dump(reference_book_object, reference_json, indent=4)
 
 if __name__ == "__main__":
