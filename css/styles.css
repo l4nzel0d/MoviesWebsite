@@ -715,6 +715,8 @@ main {
   display: flex;
   justify-content: center;
   padding-block: 3px;
+  min-width: auto;
+  padding-inline: 1rem;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(10px);
