@@ -750,10 +750,17 @@ main {
 @media (max-width: 575.98px) {
   .watch-online__swiper .watch-online__swiper-slide .watch-online__swiper-slide-backdrop {
     height: 100%;
+    width: auto;
   }
 }
 .watch-online__swiper .watch-online__swiper-slide .watch-online__swiper-slide-backdrop:active {
   cursor: grabbing;
+}
+.watch-online__swiper .watch-online__swiper-slide .watch-now-button {
+  z-index: 100;
+  position: absolute;
+  bottom: -1rem;
+  right: 1rem;
 }
 
 .media-scroller-wrapper {
@@ -870,5 +877,13 @@ main {
   .snaps-inline {
     scroll-snap-type: inline mandatory;
     scroll-padding-inline: calc(0.5rem - 3px);
+  }
+}
+#arcane-logo {
+  margin-bottom: 1.5rem;
+}
+@media (max-width: 1199.98px) {
+  #arcane-logo {
+    margin-bottom: 0.5rem;
   }
 }/*# sourceMappingURL=styles.css.map */

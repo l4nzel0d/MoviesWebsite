@@ -99,6 +99,7 @@ $spacer: 1rem;
 
             @include media-breakpoint-only(xs) {
                 height: 100%;
+                width: auto;
             }
 
             object-fit: cover;
@@ -108,6 +109,13 @@ $spacer: 1rem;
             &:active {
                 cursor: grabbing;
             }
+        }
+
+        .watch-now-button {
+            z-index: 100;
+            position: absolute;
+            bottom: -1rem;
+            right: 1rem;
         }
     }
 }
@@ -249,5 +257,13 @@ $spacer: 1rem;
     .snaps-inline {
         scroll-snap-type: inline mandatory;
         scroll-padding-inline: calc($spacer-smaller - 3px);
+    }
+}
+
+#arcane-logo {
+    margin-bottom: 1.5rem;
+
+    @include media-breakpoint-down(xl) {
+        margin-bottom: .5rem;
     }
 }
