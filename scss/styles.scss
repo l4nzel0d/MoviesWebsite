@@ -1,3 +1,4 @@
+@import "variables";
 * {
     margin: 0;
     padding: 0;
@@ -21,13 +22,24 @@ main {
     height: $height;
 }
 
+.primary-color-button {
+    background-color: $primary-color !important;
+    border-color: $primary-color !important;
+    color: white;
+
+    &:hover, &:active {
+        background-color: darken($primary-color, 3%) !important;
+        border-color: darken($primary-color, 3%) !important;
+
+    }
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 @import "../node_modules/bootstrap/scss/mixins";
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/variables";
 
-@import "variables";
 @import "components/header";
 @import "components/section-title";
 @import "components/news-article";

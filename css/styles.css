@@ -16,6 +16,16 @@ main {
   width: 100%;
 }
 
+.primary-color-button {
+  background-color: #032541 !important;
+  border-color: #032541 !important;
+  color: white;
+}
+.primary-color-button:hover, .primary-color-button:active {
+  background-color: #021d32 !important;
+  border-color: #021d32 !important;
+}
+
 #header {
   position: fixed;
   top: 0;
@@ -666,6 +676,7 @@ main {
   aspect-ratio: 16/9;
   max-height: 80vh;
   position: relative;
+  overflow: visible;
 }
 @media (max-width: 575.98px) {
   .watch-online__swiper {
@@ -676,6 +687,7 @@ main {
   width: 100%;
   height: 100%;
   position: relative;
+  overflow: visible;
 }
 .watch-online__swiper .watch-online__swiper-slide .slide-info-wrapper {
   position: absolute;
@@ -699,6 +711,11 @@ main {
   gap: 1rem;
   overflow: hidden;
 }
+@media (min-width: 992px) {
+  .watch-online__swiper .watch-online__swiper-slide .slide-info-wrapper .watch-online__swiper-slide-info {
+    margin-bottom: 0.5rem;
+  }
+}
 .watch-online__swiper .watch-online__swiper-slide .slide-info-wrapper .watch-online__swiper-slide-info .logo {
   max-height: 20vw;
   max-width: 80%;
@@ -711,8 +728,13 @@ main {
     max-width: 80%;
   }
 }
+.watch-online__swiper .watch-online__swiper-slide .slide-info-wrapper .watch-online__swiper-slide-info .watch-now-button {
+  text-transform: uppercase;
+  font-weight: 600;
+}
 .watch-online__swiper .watch-online__swiper-slide .slide-info-wrapper .watch-online__swiper-slide-info .info-strip {
   display: flex;
+  gap: 1rem;
   justify-content: center;
   padding-block: 3px;
   min-width: auto;
@@ -754,12 +776,6 @@ main {
 }
 .watch-online__swiper .watch-online__swiper-slide .watch-online__swiper-slide-backdrop:active {
   cursor: grabbing;
-}
-.watch-online__swiper .watch-online__swiper-slide .watch-now-button {
-  z-index: 100;
-  position: absolute;
-  bottom: -1rem;
-  right: 1rem;
 }
 
 .media-scroller-wrapper {
@@ -879,10 +895,38 @@ main {
   }
 }
 #arcane-logo {
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
 }
-@media (max-width: 1199.98px) {
+@media (max-width: 575.98px) {
   #arcane-logo {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
   }
+}
+
+.watch-now-back-strip {
+  width: 100%;
+  display: flex;
+  margin-bottom: -1rem;
+  position: relative;
+  z-index: 100;
+  transform: translateY(-50%);
+  justify-content: center;
+}
+
+.watch-now-button {
+  display: flex !important;
+  gap: 1rem !important;
+  align-items: center;
+  z-index: 100;
+  right: 3rem;
+  padding: 0.5rem 1.5rem !important;
+  text-transform: uppercase;
+  font-weight: 500 !important;
+  font-size: 1rem !important;
+  border-radius: 999px !important;
+  scale: 1;
+  transition: all 0.3s ease !important;
+}
+.watch-now-button:hover {
+  scale: 1.05;
 }/*# sourceMappingURL=styles.css.map */
