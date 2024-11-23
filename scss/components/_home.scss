@@ -19,6 +19,7 @@ $spacer: 1rem;
         position: relative;
 
 
+
         .slide-info-wrapper {
             position: absolute;
             left: 50%;
@@ -99,7 +100,6 @@ $spacer: 1rem;
 
             @include media-breakpoint-only(xs) {
                 height: 100%;
-                width: auto;
             }
 
             object-fit: cover;
