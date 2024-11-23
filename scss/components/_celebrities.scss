@@ -12,6 +12,10 @@ $celebrity-card-height: 300px;
     } 
 }
 
+.section-title {
+    @include section-title(2rem);
+}
+
 .celebrities-main {
     display: flex;
     flex-direction: column;
@@ -117,6 +121,24 @@ $celebrity-card-height: 300px;
             }
             .month-and-day-title {
                 font-size: 1.7rem;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-only(xs) {
+    @include scale-card(.8);
+    .celebrities-main {
+        .celebrities-wrapper {
+            .section-title {
+                @include section-title(1.5rem); 
+                justify-self: center;
+            }
+            .born-today-and-date-wrapper {
+                justify-self: center;
+                .month-and-day-title {
+                    font-size: 1.5rem;
+                }
             }
         }
     }
