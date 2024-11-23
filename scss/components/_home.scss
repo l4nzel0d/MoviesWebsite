@@ -5,59 +5,101 @@ $spacer: 1rem;
     width: 100%;
     aspect-ratio: 16 / 9;
     max-height: 80vh;
+
+    @include media-breakpoint-only(xs) {
+        min-height: 35vh;
+    }
+    
+
     position: relative;
 
     .watch-online__swiper-slide {
         width: 100%;
         height: 100%;
+        position: relative;
 
-        .watch-online__swiper-slide-info {
+
+        .slide-info-wrapper {
             position: absolute;
-            left: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
             bottom: 2rem;
+            // background-color: cyan;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            align-items: flex-start;
-            gap: 1rem;
-            height: 40%;
-            overflow: visible;
+            width: 90vw;
+            overflow: hidden;
 
-            .logo {
-                max-height: 100%;
-                max-width: 50vw;
-                object-fit: contain;
-
-
-            }
-
-            .info-strip {
+            .watch-online__swiper-slide-info {
+                position: relative;
+                width: 100%;
+                height: 100%;
                 display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
                 align-items: center;
-                justify-content: space-around;
-                padding-inline: 1rem;
-                padding-block: 3px;
-                gap: clamp(1rem, 4vw, 2rem);
-                border-radius: 10px;
-                background: rgba(255, 255, 255, .3);
-                backdrop-filter: blur(10px); 
-                -webkit-backdrop-filter: blur(10px); 
+                gap: 1rem;
+                overflow: hidden;
 
-                p {
-                    margin: 0;
-                    font-size: 20px;
-                    font-weight: 500;
-                    color: white;
+                .logo {
+                    max-height: 20vw;
+                    max-width: 80%;
+
+                    @include media-breakpoint-only(xs) {
+                        max-height: 12vh;
+                        max-width: 80%
+                    }
+
+                    object-fit: contain;
                 }
-
-
+    
+                .info-strip {
+                    display: flex;
+                    justify-content: center;
+                    padding-block: 3px;
+                    // width: 100%;
+                    border-radius: 10px;
+                    background: rgba(255, 255, 255, .3);
+                    backdrop-filter: blur(10px); 
+                    -webkit-backdrop-filter: blur(10px); 
+    
+                    @include media-breakpoint-down(sm) {
+                        display: none;
+                    }
+                    
+                    .info-strip-content {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-around;
+                        gap: clamp(1rem, 4vw, 2rem);
+                        
+                        p {
+                            margin: 0;
+                            font-size: 20px;
+                            font-weight: 500;
+                            color: white;
+        
+                        }
+                    }
+                    
+    
+    
+                }
             }
+
         }
+
 
         .watch-online__swiper-slide-backdrop {
             position: relative;
             top: 0;
             width: 100%;
+
+            @include media-breakpoint-only(xs) {
+                height: 100%;
+            }
+
             object-fit: cover;
 
             cursor: grab;

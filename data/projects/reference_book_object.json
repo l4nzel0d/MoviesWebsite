@@ -1,5 +1,5 @@
 {
-    "Movies": {
+    "movie": {
         "569094": "Spider-Man: Across the Spider-Verse",
         "508965": "Klaus",
         "353081": "Mission: Impossible - Fallout",
@@ -9,14 +9,12 @@
         "348": "Alien",
         "693134": "Dune: Part Two",
         "546554": "Knives Out",
-        "153": "Lost in Translation",
         "313369": "La La Land",
         "374720": "Dunkirk",
         "945961": "Alien: Romulus",
-        "1064213": "Anora",
         "1138194": "Heretic"
     },
-    "TV Shows": {
+    "tv": {
         "94605": "Arcane",
         "125988": "Silo",
         "1398": "The Sopranos",

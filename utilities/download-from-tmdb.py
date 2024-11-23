@@ -88,7 +88,7 @@ def main():
     configuration = requests.get("https://api.themoviedb.org/3/configuration", headers=headers).json()
     images_configuration = configuration["images"]
 
-    reference_book_object = {"Movies": {}, "TV Shows": {}}
+    reference_book_object = {"movie": {}, "tv": {}}
 
     for project_name in PROJECT_NAMES:
         project_object = {}
@@ -102,15 +102,14 @@ def main():
         if data.get("results"):
             first_result = data["results"][0]
             project_object["id"] = first_result["id"]
-
             if 'title' in first_result:
                 project_object["title"] = first_result.get("title")
-                project_object["type"] = 'Movie'
-                reference_book_object["Movies"][project_object["id"]] = project_object["title"]
+                project_object["type"] = 'movie'
+                reference_book_object["movie"][project_object["id"]] = project_object["title"]
             else:
                 project_object["title"] = first_result.get("name")
-                project_object["type"] = 'TV Show'
-                reference_book_object["TV Shows"][project_object["id"]] = project_object["title"]
+                project_object["type"] = 'tv'
+                reference_book_object["tv"][project_object["id"]] = project_object["title"]
 
 
             project_object["poster_path"] = first_result["poster_path"]
@@ -120,7 +119,19 @@ def main():
                     file_name = f"{PROJECTS_PATH}{project_object['id']}/{project_object["id"]}_poster_{size}.jpg"
                     project_object[f"poster_path_{size}_local"] = file_name
                     save_image(poster_url, file_name)
+            
 
+            images_response = requests.get(f"https://api.themoviedb.org/3/{project_object['type']}/{project_object['id']}/images", headers=headers).json()
+            for index, logo_object in enumerate(images_response["logos"]):
+                if logo_object["iso_639_1"] not in [None, "en"]: continue
+                
+                logo_url_end = logo_object["file_path"]
+
+                logo_url = f"https://image.tmdb.org/t/p/original{logo_url_end}"
+                logo_extension = logo_url_end.split(".")[-1]
+                logo_file_name = f"{PROJECTS_PATH}{project_object['id']}/{project_object["id"]}_logo_{index}.{logo_extension}"
+                save_image(logo_url, logo_file_name)
+            
             project_object_path = f"{PROJECTS_PATH}/{project_object['id']}/{project_object['id']}.json"
             os.makedirs(os.path.dirname(project_object_path), exist_ok=True)
 

@@ -608,41 +608,71 @@ main {
   max-height: 80vh;
   position: relative;
 }
+@media (max-width: 575.98px) {
+  .watch-online__swiper {
+    min-height: 35vh;
+  }
+}
 .watch-online__swiper .watch-online__swiper-slide {
   width: 100%;
   height: 100%;
+  position: relative;
 }
-.watch-online__swiper .watch-online__swiper-slide .watch-online__swiper-slide-info {
+.watch-online__swiper .watch-online__swiper-slide .slide-info-wrapper {
   position: absolute;
-  left: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
   bottom: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  align-items: flex-start;
-  gap: 1rem;
-  height: 40%;
-  overflow: visible;
+  width: 90vw;
+  overflow: hidden;
 }
-.watch-online__swiper .watch-online__swiper-slide .watch-online__swiper-slide-info .logo {
-  max-height: 100%;
-  max-width: 50vw;
+.watch-online__swiper .watch-online__swiper-slide .slide-info-wrapper .watch-online__swiper-slide-info {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  overflow: hidden;
+}
+.watch-online__swiper .watch-online__swiper-slide .slide-info-wrapper .watch-online__swiper-slide-info .logo {
+  max-height: 20vw;
+  max-width: 80%;
   -o-object-fit: contain;
      object-fit: contain;
 }
-.watch-online__swiper .watch-online__swiper-slide .watch-online__swiper-slide-info .info-strip {
+@media (max-width: 575.98px) {
+  .watch-online__swiper .watch-online__swiper-slide .slide-info-wrapper .watch-online__swiper-slide-info .logo {
+    max-height: 12vh;
+    max-width: 80%;
+  }
+}
+.watch-online__swiper .watch-online__swiper-slide .slide-info-wrapper .watch-online__swiper-slide-info .info-strip {
   display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding-inline: 1rem;
+  justify-content: center;
   padding-block: 3px;
-  gap: clamp(1rem, 4vw, 2rem);
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
-.watch-online__swiper .watch-online__swiper-slide .watch-online__swiper-slide-info .info-strip p {
+@media (max-width: 575.98px) {
+  .watch-online__swiper .watch-online__swiper-slide .slide-info-wrapper .watch-online__swiper-slide-info .info-strip {
+    display: none;
+  }
+}
+.watch-online__swiper .watch-online__swiper-slide .slide-info-wrapper .watch-online__swiper-slide-info .info-strip .info-strip-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: clamp(1rem, 4vw, 2rem);
+}
+.watch-online__swiper .watch-online__swiper-slide .slide-info-wrapper .watch-online__swiper-slide-info .info-strip .info-strip-content p {
   margin: 0;
   font-size: 20px;
   font-weight: 500;
@@ -655,6 +685,11 @@ main {
   -o-object-fit: cover;
      object-fit: cover;
   cursor: grab;
+}
+@media (max-width: 575.98px) {
+  .watch-online__swiper .watch-online__swiper-slide .watch-online__swiper-slide-backdrop {
+    height: 100%;
+  }
 }
 .watch-online__swiper .watch-online__swiper-slide .watch-online__swiper-slide-backdrop:active {
   cursor: grabbing;
