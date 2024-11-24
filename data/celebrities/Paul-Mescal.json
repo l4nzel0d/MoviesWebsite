@@ -1,1 +1,6 @@
-{"imgPath": "data/celebrities/Paul-Mescal.jpg", "firstName": "Paul", "lastName": "Mescal", "age": 28}
+{
+    "imgPath": "data/celebrities/Paul-Mescal.jpg",
+    "firstName": "Paul",
+    "lastName": "Mescal",
+    "age": 27
+}

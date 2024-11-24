@@ -1,1 +1,6 @@
-{"imgPath": "data/celebrities/Christopher-Nolan.jpg", "firstName": "Christopher", "lastName": "Nolan", "age": 54}
+{
+    "imgPath": "data/celebrities/Christopher-Nolan.jpg",
+    "firstName": "Christopher",
+    "lastName": "Nolan",
+    "age": 53
+}

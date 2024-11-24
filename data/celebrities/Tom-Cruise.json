@@ -1,1 +1,6 @@
-{"imgPath": "data/celebrities/Tom-Cruise.jpg", "firstName": "Tom", "lastName": "Cruise", "age": 62}
+{
+    "imgPath": "data/celebrities/Tom-Cruise.jpg",
+    "firstName": "Tom",
+    "lastName": "Cruise",
+    "age": 61
+}
