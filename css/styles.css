@@ -765,7 +765,7 @@ main {
   gap: 1rem;
   overflow: hidden;
 }
-@media (min-width: 992px) {
+@media (min-width: 576px) {
   .watch-online__swiper .watch-online__swiper-slide .slide-info-wrapper .watch-online__swiper-slide-info {
     margin-bottom: 0.5rem;
   }
