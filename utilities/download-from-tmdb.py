@@ -72,13 +72,37 @@ TV_SHOW_NAMES = [
 PROJECT_NAMES = TV_SHOW_NAMES + MOVIE_NAMES
 
 PEOPLE = [
-    "Christopher Nolan"
+    "Ludwig Goransson",
+    "Jason Sudeikis",
+    "Hannah Waddingham",
+    "Emily Blunt",
+    "John Krasinski",
+    "Edgar Wright",
+    "Christopher McQuarrie",
+    "Matt Reeves",
+    "Brad Pitt",
+    "Christopher Nolan",
+    "Colin Farrell",
+    "Cristin Milioti",
+    "Hailee Steinfeld",
+    "Margaret Qualley",
+    "Paul Mescal",
+    "Pedro Pascal",
+    "Tom Cruise",
+    "Ryan Gosling",
+    "Emma Stone",
+    "Margot Robbie",
+    "Scarlett Johansson",
+    "Greta Gerwig",
+    "Martin Scorsese",
+    "Hugh Grant"
 ]
+
 
 PROJECTS_PATH = "data/projects/"
 PEOPLE_PATH = "data/people/"
 SEARCH_URL = "https://api.themoviedb.org/3/search/multi?query={query}&include_adult=false&language=en-US&page=1"
-IMAGE_URL = "https://image.tmdb.org/t/p/{size}{image_path}"
+DONWLOAD_IMAGE_URL = "https://image.tmdb.org/t/p/{size}{image_path}"
 
 
 def save_image(image_url, file_name):
@@ -104,7 +128,11 @@ def main():
     ).json()
     images_configuration = configuration["images"]
 
-    chosen_program = int(input("Choose program: 1. Download movie and tv data; or 2. Download people data --- "))
+    chosen_program = int(
+        input(
+            "Choose program: 1. Download movie and tv data; or 2. Download people data --- "
+        )
+    )
     if chosen_program == 1:
         reference_book_path = f"{PROJECTS_PATH}reference_book_object.json"
 
@@ -135,15 +163,18 @@ def main():
                 first_result = data["results"][0]
                 project_object["id"] = str(first_result["id"])
 
-                # if project_object["id"] in reference_book_object["movie"] or project_object["id"] in reference_book_object["tv"]:
-                #     continue
+                if (
+                    project_object["id"] in reference_book_object["movie"]
+                    or project_object["id"] in reference_book_object["tv"]
+                ):
+                    continue
 
                 if "title" in first_result:
                     project_object["title"] = first_result.get("title")
                     project_object["type"] = "movie"
-                    reference_book_object["movie"][project_object["id"]] = project_object[
-                        "title"
-                    ]
+                    reference_book_object["movie"][project_object["id"]] = (
+                        project_object["title"]
+                    )
                 else:
                     project_object["title"] = first_result.get("name")
                     project_object["type"] = "tv"
@@ -154,7 +185,9 @@ def main():
                 project_object["poster_path"] = first_result["poster_path"]
                 if project_object["poster_path"]:  # Check if poster_path exists
                     for size in images_configuration["poster_sizes"]:
-                        poster_url = IMAGE_URL.format(size=size, image_path=project_object["poster_path"])
+                        poster_url = DONWLOAD_IMAGE_URL.format(
+                            size=size, image_path=project_object["poster_path"]
+                        )
                         file_name = f"{PROJECTS_PATH}{project_object['id']}/{project_object["id"]}_poster_{size}.jpg"
                         project_object[f"poster_path_{size}_local"] = file_name
                         save_image(poster_url, file_name)
@@ -175,7 +208,7 @@ def main():
                     save_image(logo_url, logo_file_name)
 
                 project_object_path = (
-                    f"{PROJECTS_PATH}/{project_object['id']}/{project_object['id']}.json"
+                    f"{PROJECTS_PATH}{project_object['id']}/{project_object['id']}.json"
                 )
                 os.makedirs(os.path.dirname(project_object_path), exist_ok=True)
 
@@ -191,7 +224,69 @@ def main():
 
         with open(reference_book_path, "w") as reference_json:
             json.dump(reference_book_object, reference_json, indent=4)
-    elif chosen_program == 2: ...
+
+    elif chosen_program == 2:
+        people_reference_book_path = f"{PEOPLE_PATH}people_reference_book_object.json"
+
+        people_reference_book_object = {}
+
+        # Try to load the dictionary from the JSON file if it exists
+        if os.path.exists(people_reference_book_path):
+            with open(people_reference_book_path, "r") as file:
+                try:
+                    people_reference_book_object = json.load(file)
+                except json.JSONDecodeError:
+                    print("Error decoding JSON. Using default values.")
+        else:
+            print(f"{people_reference_book_path} does not exist. Using default values.")
+
+        for person_name in PEOPLE:
+            person_object = {}
+            processed_person_name = urllib.parse.quote(person_name, safe="")
+            response = requests.get(
+                SEARCH_URL.format(query=processed_person_name), headers=headers
+            )
+            data = response.json()
+            if data.get("results"):
+                first_result = data["results"][0]
+                person_object["id"] = str(first_result["id"])
+                if person_object["id"] in people_reference_book_object:
+                    continue
+
+                person_object["name"] = first_result["name"]
+                person_object["department"] = first_result["known_for_department"]
+                person_object["profile_path"] = first_result["profile_path"]
+
+                people_reference_book_object[person_object["id"]] = person_object[
+                    "name"
+                ]
+
+                for size in images_configuration["profile_sizes"]:
+                    profile_url = DONWLOAD_IMAGE_URL.format(
+                        size=size, image_path=person_object["profile_path"]
+                    )
+                    profile_extension = person_object["profile_path"].split(".")[-1]
+                    file_name = f"{PEOPLE_PATH}{person_object["id"]}/{person_object["id"]}_profile_{size}.{profile_extension}"
+                    person_object[f"profile_path_{size}_local"] = file_name
+                    save_image(profile_url, file_name)
+
+                person_object_path = (
+                    f"{PEOPLE_PATH}{person_object['id']}/{person_object["id"]}.json"
+                )
+                os.makedirs(os.path.dirname(person_object_path), exist_ok=True)
+
+                with open(person_object_path, "w") as json_file:
+                    json.dump(person_object, json_file, indent=4)
+
+                print(
+                    f"Person: {person_object['name']}, ID: {person_object['id']} - data saved"
+                )
+
+            else:
+                print(f"No results found for Person: {person_name}")
+        with open(people_reference_book_path, "w") as reference_json:
+            json.dump(people_reference_book_object, reference_json, indent=4)
+
 
 if __name__ == "__main__":
     main()
