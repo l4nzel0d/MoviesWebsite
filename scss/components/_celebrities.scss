@@ -160,9 +160,12 @@ $celebrity-card-height: 300px;
         transform: scale(1.8) translateY(25%) translateX(5%);
     }
     &#Florence-Pugh-img {
-        transform: scale(2.3) translateY(5%);
+        transform: translateY(0);
     }
     &#Scarlett-Johansson-img {
-        transform: scale(1.01) translateY(5%);
+        transform: translateY(15%) translateX(5%) scale(1.1) ;
+    }
+    &#Rebecca-Ferguson-img {
+        transform: scale(2.5) translateY(18%) translateX(2%);
     }
 }
