@@ -180,6 +180,9 @@ main {
   .background-image[data-article-id=La-La-Land] {
     transform: translateY(-6%);
   }
+  .background-image[data-article-id=Dune] {
+    transform: translateY(-10%);
+  }
 }
 .news-dashboard-container {
   display: flex;
@@ -291,6 +294,28 @@ main {
   .news-dashboard-container .news-grid {
     grid-template-columns: repeat(1, 1fr);
   }
+}
+
+.section-title {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 4rem;
+  position: relative;
+  width: -moz-max-content;
+  width: max-content;
+  color: #032541;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0.4rem;
+  left: 0.2rem;
+  right: 0rem;
+  height: 0.5rem;
+  background-color: #032541;
 }
 
 .section-title {

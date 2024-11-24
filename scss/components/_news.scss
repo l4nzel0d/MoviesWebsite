@@ -120,3 +120,7 @@
         }
     }
 }
+
+.section-title {
+    @include section-title(4rem);
+}
