@@ -29,6 +29,7 @@ $spacer: 1rem;
             flex-direction: column;
             justify-content: flex-end;
             width: 90vw;
+            height: 100%;
             overflow: hidden;
 
             .watch-online__swiper-slide-info {
@@ -97,8 +98,10 @@ $spacer: 1rem;
         }
 
         .watch-online__swiper-slide-backdrop {
-            position: relative;
+            position: absolute;
             top: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 100%;
 
             @include media-breakpoint-only(xs) {

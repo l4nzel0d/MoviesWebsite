@@ -698,6 +698,7 @@ main {
   flex-direction: column;
   justify-content: flex-end;
   width: 90vw;
+  height: 100%;
   overflow: hidden;
 }
 .watch-online__swiper .watch-online__swiper-slide .slide-info-wrapper .watch-online__swiper-slide-info {
@@ -762,8 +763,10 @@ main {
   color: white;
 }
 .watch-online__swiper .watch-online__swiper-slide .watch-online__swiper-slide-backdrop {
-  position: relative;
+  position: absolute;
   top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
