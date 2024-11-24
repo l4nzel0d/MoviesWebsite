@@ -54,13 +54,16 @@
             transform: translateY(-10%);
         }
         &[data-article-id="Arcane"] {
-            transform: translateY(-15%);
+            // transform: translateY(-15%);
         }
         &[data-article-id="La-La-Land"] {
             transform: translateY(-6%);
         }
         &[data-article-id="Dune"] {
             transform: translateY(-10%);
+        }
+        &[data-article-id="Wild-Robot"] {
+            transform: translateY(-20%);
         }
     }
 }

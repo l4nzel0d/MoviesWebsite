@@ -174,14 +174,14 @@ main {
   .background-image[data-article-id=Gladiator-2] {
     transform: translateY(-10%);
   }
-  .background-image[data-article-id=Arcane] {
-    transform: translateY(-15%);
-  }
   .background-image[data-article-id=La-La-Land] {
     transform: translateY(-6%);
   }
   .background-image[data-article-id=Dune] {
     transform: translateY(-10%);
+  }
+  .background-image[data-article-id=Wild-Robot] {
+    transform: translateY(-20%);
   }
 }
 .news-dashboard-container {
@@ -972,11 +972,16 @@ main {
   z-index: 100;
   padding: 0.5rem 1.5rem !important;
   text-transform: uppercase;
-  font-weight: 500 !important;
-  font-size: 1rem !important;
+  font-weight: 600 !important;
+  font-size: 1.5rem !important;
   border-radius: 999px !important;
   scale: 1;
   transition: all 0.3s ease !important;
+}
+@media (max-width: 575.98px) {
+  .watch-now-button {
+    font-size: 1.1rem !important;
+  }
 }
 @media (hover: hover) {
   .watch-now-button:hover {
@@ -1018,6 +1023,12 @@ main {
   }
   #dunkirk-logo {
     transform: translateY(-1rem);
+  }
+  #arcane-logo {
+    transform: translateY(-0.8rem);
+  }
+  #la-la-land-logo {
+    transform: translateY(-0.8rem);
   }
 }
 #we-live-in-time-logo {

@@ -295,11 +295,15 @@ $spacer: 1rem;
     z-index: 100;
     padding: 0.5rem 1.5rem !important;
     text-transform: uppercase;
-    font-weight: 500 !important;
-    font-size: 1rem !important;
+    font-weight: 600 !important;
+    font-size: 1.5rem !important;
     border-radius: 999px !important;
     scale: 1;
     transition: all 0.3s ease !important;
+
+    @include media-breakpoint-only(xs) {
+        font-size: 1.1rem !important;
+    }
 
     @media (hover: hover) {
         &:hover {
@@ -346,6 +350,12 @@ $spacer: 1rem;
     }
     #dunkirk-logo {
         transform: translateY(-1rem);
+    }
+    #arcane-logo {
+        transform: translateY(-.8rem);
+    }
+    #la-la-land-logo {
+        transform: translateY(-.8rem);
     }
     
 }
