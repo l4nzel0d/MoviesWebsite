@@ -26,6 +26,14 @@ MOVIE_NAMES = [
     "dunkirk",
     "alien romulus",
     "heretic",
+    "into the spiderverse",
+    "once upon a time in america",
+    "once upon a time in the west",
+    "avengers infinity war",
+    "north by northwest",
+    "eternal sunshine of the spotless mind",
+    "three billboards",
+    "return of the king",
 ]
 
 TV_SHOW_NAMES = [
@@ -59,11 +67,10 @@ TV_SHOW_NAMES = [
     "The Boys",
     "The Expanse",
     "The Handmaid's Tale",
-    "Chernobyl"
+    "Chernobyl",
 ]
 
 PROJECT_NAMES = TV_SHOW_NAMES + MOVIE_NAMES
-
 
 
 def save_image(image_url, file_name):
@@ -85,10 +92,25 @@ def save_image(image_url, file_name):
 def main():
     headers = {"accept": "application/json", "Authorization": f"Bearer {bearer_token}"}
 
-    configuration = requests.get("https://api.themoviedb.org/3/configuration", headers=headers).json()
+    configuration = requests.get(
+        "https://api.themoviedb.org/3/configuration", headers=headers
+    ).json()
     images_configuration = configuration["images"]
+    reference_book_path = f"{PROJECTS_PATH}reference_book_object.json"
 
-    reference_book_object = {"movie": {}, "tv": {}}
+    default_value = {"movie": {}, "tv": {}}
+
+    reference_book_object = default_value
+
+    # Try to load the dictionary from the JSON file if it exists
+    if os.path.exists(reference_book_path):
+        with open(reference_book_path, "r") as file:
+            try:
+                reference_book_object = json.load(file)
+            except json.JSONDecodeError:
+                print("Error decoding JSON. Using default values.")
+    else:
+        print(f"{reference_book_path} does not exist. Using default values.")
 
     for project_name in PROJECT_NAMES:
         project_object = {}
@@ -101,16 +123,23 @@ def main():
 
         if data.get("results"):
             first_result = data["results"][0]
-            project_object["id"] = first_result["id"]
-            if 'title' in first_result:
+            project_object["id"] = str(first_result["id"])
+
+            if project_object["id"] in reference_book_object["movie"] or project_object["id"] in reference_book_object["tv"]:
+                continue
+
+            if "title" in first_result:
                 project_object["title"] = first_result.get("title")
-                project_object["type"] = 'movie'
-                reference_book_object["movie"][project_object["id"]] = project_object["title"]
+                project_object["type"] = "movie"
+                reference_book_object["movie"][project_object["id"]] = project_object[
+                    "title"
+                ]
             else:
                 project_object["title"] = first_result.get("name")
-                project_object["type"] = 'tv'
-                reference_book_object["tv"][project_object["id"]] = project_object["title"]
-
+                project_object["type"] = "tv"
+                reference_book_object["tv"][project_object["id"]] = project_object[
+                    "title"
+                ]
 
             project_object["poster_path"] = first_result["poster_path"]
             if project_object["poster_path"]:  # Check if poster_path exists
@@ -119,20 +148,25 @@ def main():
                     file_name = f"{PROJECTS_PATH}{project_object['id']}/{project_object["id"]}_poster_{size}.jpg"
                     project_object[f"poster_path_{size}_local"] = file_name
                     save_image(poster_url, file_name)
-            
 
-            images_response = requests.get(f"https://api.themoviedb.org/3/{project_object['type']}/{project_object['id']}/images", headers=headers).json()
+            images_response = requests.get(
+                f"https://api.themoviedb.org/3/{project_object['type']}/{project_object['id']}/images",
+                headers=headers,
+            ).json()
             for index, logo_object in enumerate(images_response["logos"]):
-                if logo_object["iso_639_1"] not in [None, "en"]: continue
-                
+                if logo_object["iso_639_1"] not in [None, "en"]:
+                    continue
+
                 logo_url_end = logo_object["file_path"]
 
                 logo_url = f"https://image.tmdb.org/t/p/original{logo_url_end}"
                 logo_extension = logo_url_end.split(".")[-1]
                 logo_file_name = f"{PROJECTS_PATH}{project_object['id']}/{project_object["id"]}_logo_{index}.{logo_extension}"
                 save_image(logo_url, logo_file_name)
-            
-            project_object_path = f"{PROJECTS_PATH}/{project_object['id']}/{project_object['id']}.json"
+
+            project_object_path = (
+                f"{PROJECTS_PATH}/{project_object['id']}/{project_object['id']}.json"
+            )
             os.makedirs(os.path.dirname(project_object_path), exist_ok=True)
 
             with open(project_object_path, "w") as json_file:
@@ -145,8 +179,9 @@ def main():
         else:
             print(f"No results found for Project: {project_name}")
 
-    with open(f"{PROJECTS_PATH}/reference_book_object.json", "w") as reference_json:
+    with open(reference_book_path, "w") as reference_json:
         json.dump(reference_book_object, reference_json, indent=4)
+
 
 if __name__ == "__main__":
     main()
