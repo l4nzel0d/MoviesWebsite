@@ -690,6 +690,12 @@ main {
   overflow: visible;
   position: relative;
   top: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  cursor: grab;
+}
+.watch-online__swiper .watch-online__swiper-slide:active {
+  cursor: grabbing;
 }
 .watch-online__swiper .watch-online__swiper-slide .slide-info-wrapper {
   position: absolute;
@@ -750,8 +756,6 @@ main {
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.3);
   position: relative;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 @media (max-width: 575.98px) {
   .watch-online__swiper .watch-online__swiper-slide .slide-info-wrapper .watch-online__swiper-slide-info .info-strip {
@@ -779,17 +783,11 @@ main {
   min-height: 35vh;
   -o-object-fit: top;
      object-fit: top;
-  -o-object-fit: cover;
-     object-fit: cover;
-  cursor: grab;
 }
 @media (max-width: 575.98px) {
   .watch-online__swiper .watch-online__swiper-slide .watch-online__swiper-slide-backdrop {
     height: 100%;
   }
-}
-.watch-online__swiper .watch-online__swiper-slide .watch-online__swiper-slide-backdrop:active {
-  cursor: grabbing;
 }
 
 .media-scroller-wrapper {
