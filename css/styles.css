@@ -989,6 +989,10 @@ main {
     gap: 0;
   }
 }
-#pulp-fiction-logo {
-  height: 35%;
+#we-live-in-time-logo {
+  height: 32%;
+}
+
+#across-the-spiderverse-logo {
+  max-height: 30%;
 }/*# sourceMappingURL=styles.css.map */

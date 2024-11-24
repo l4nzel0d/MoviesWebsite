@@ -200,6 +200,7 @@ def main():
                     ]
 
                 project_object["poster_path"] = first_result["poster_path"]
+                if project_object["title"] == "Arcane": project_object["poster_path"] = "/abf8tHznhSvl9BAElD2cQeRr7do.jpg"
                 if project_object["poster_path"]:  # Check if poster_path exists
                     for size in images_configuration["poster_sizes"]:
                         poster_url = DONWLOAD_IMAGE_URL.format(
@@ -250,7 +251,7 @@ def main():
                 print(
                     f"Project: {project_object['title']}, ID: {project_object['id']} - data saved"
                 )
-
+                return
             else:
                 print(f"No results found for Project: {project_name}")
 
