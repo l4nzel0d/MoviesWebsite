@@ -14,8 +14,8 @@ $spacer: 1rem;
     overflow: visible;
 
     .watch-online__swiper-slide {
-        width: 100%;
         height: 100%;
+        width: 100%;
         position: relative;
         overflow: visible;
 
@@ -300,11 +300,11 @@ $spacer: 1rem;
 
         .watch-online__swiper-slide {
             width: 100%;
-            height: 100%;
+            min-height: 100%;
 
             .watch-online__swiper-slide-backdrop {
-                height: 100%;
-                width: auto;
+                min-height: 100%;
+                width: 100%;
                 object-fit: cover;
             }
         }
