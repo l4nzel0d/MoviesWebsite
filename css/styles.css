@@ -175,7 +175,7 @@ main {
     transform: translateY(-10%);
   }
   .background-image[data-article-id=Arcane] {
-    transform: translateY(-5%);
+    transform: translateY(-15%);
   }
   .background-image[data-article-id=La-La-Land] {
     transform: translateY(-6%);
