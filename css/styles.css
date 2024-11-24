@@ -968,4 +968,9 @@ main {
   #arcane-backdrop {
     top: -10%;
   }
+}
+@media (max-width: 575.98px) {
+  .popular-sections-block {
+    gap: 0;
+  }
 }/*# sourceMappingURL=styles.css.map */
