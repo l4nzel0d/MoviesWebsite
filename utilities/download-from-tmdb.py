@@ -12,6 +12,21 @@ if not api_key:
     raise ValueError("API_KEY not found in environment")
 
 MOVIE_NAMES = [
+    "Pulp Fiction",
+    "The Shawshank Redemption",
+    "Fight Club",
+    "Forrest Gump",
+    "The Godfather",
+    "Interstellar",
+    "The Matrix",
+    "Gladiator",
+    "The Lion King",
+    "Schindler's List",
+    "Jurassic Park",
+    "The Social Network",
+    "Titanic",
+    "The Prestige",
+    "back to the future",
     "Across the spiderverse",
     "Klaus",
     "Mission: Impossible Fallout",
@@ -97,7 +112,7 @@ PEOPLE = [
     "Scarlett Johansson",
     "Greta Gerwig",
     "Martin Scorsese",
-    "Hugh Grant"
+    "Hugh Grant",
 ]
 
 
@@ -165,11 +180,11 @@ def main():
                 first_result = data["results"][0]
                 project_object["id"] = str(first_result["id"])
 
-                # if (
-                #     project_object["id"] in reference_book_object["movie"]
-                #     or project_object["id"] in reference_book_object["tv"]
-                # ):
-                #     continue
+                if (
+                    project_object["id"] in reference_book_object["movie"]
+                    or project_object["id"] in reference_book_object["tv"]
+                ):
+                    continue
 
                 if "title" in first_result:
                     project_object["title"] = first_result.get("title")
@@ -217,7 +232,9 @@ def main():
 
                     backdrop_url_end = backdrop_object["file_path"]
 
-                    backdrop_url = f"https://image.tmdb.org/t/p/original{backdrop_url_end}"
+                    backdrop_url = (
+                        f"https://image.tmdb.org/t/p/original{backdrop_url_end}"
+                    )
                     backdrop_extension = backdrop_url_end.split(".")[-1]
                     backdrop_file_name = f"{PROJECTS_PATH}{project_object['id']}/{project_object["id"]}_backdrop_{index}.{backdrop_extension}"
                     save_image(backdrop_url, backdrop_file_name)
