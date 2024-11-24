@@ -72,6 +72,8 @@ TV_SHOW_NAMES = [
 PROJECT_NAMES = TV_SHOW_NAMES + MOVIE_NAMES
 
 PEOPLE = [
+    "Timothee Chalamet",
+    "Rebecca Ferguson",
     "Ludwig Goransson",
     "Jason Sudeikis",
     "Hannah Waddingham",
