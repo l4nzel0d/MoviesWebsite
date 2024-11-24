@@ -43,7 +43,7 @@ $spacer: 1rem;
                 overflow: hidden;
 
                 @include media-breakpoint-up(lg) {
-                    margin-bottom: .5rem;
+                    margin-bottom: 0.5rem;
                 }
 
                 .logo {
@@ -252,7 +252,7 @@ $spacer: 1rem;
 }
 
 #arcane-logo {
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
 
     @include media-breakpoint-down(sm) {
         margin-bottom: 0;
@@ -286,14 +286,12 @@ $spacer: 1rem;
     font-size: 1rem !important;
     border-radius: 999px !important;
     scale: 1;
-    transition: all .3s ease !important;
+    transition: all 0.3s ease !important;
 
     &:hover {
         scale: 1.05;
-        
     }
 }
-
 
 @include media-breakpoint-only(xs) {
     .watch-online__swiper {
@@ -306,6 +304,7 @@ $spacer: 1rem;
 
             .watch-online__swiper-slide-backdrop {
                 height: 100%;
+                width: auto;
                 object-fit: cover;
             }
         }

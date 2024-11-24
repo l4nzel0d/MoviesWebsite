@@ -942,6 +942,7 @@ main {
   }
   .watch-online__swiper .watch-online__swiper-slide .watch-online__swiper-slide-backdrop {
     height: 100%;
+    width: auto;
     -o-object-fit: cover;
        object-fit: cover;
   }
