@@ -14,10 +14,11 @@ $spacer: 1rem;
     overflow: visible;
 
     .watch-online__swiper-slide {
-        height: 100%;
+        min-height: 100%;
+        min-height: 35vh;
         width: 100%;
-        position: relative;
         overflow: visible;
+        position: relative;
 
         .slide-info-wrapper {
             position: absolute;
@@ -103,6 +104,7 @@ $spacer: 1rem;
             left: 50%;
             transform: translateX(-50%);
             width: 100%;
+            min-height: 35vh;
 
             @include media-breakpoint-only(xs) {
                 height: 100%;

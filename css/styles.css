@@ -684,10 +684,11 @@ main {
   }
 }
 .watch-online__swiper .watch-online__swiper-slide {
-  height: 100%;
+  min-height: 100%;
+  min-height: 35vh;
   width: 100%;
-  position: relative;
   overflow: visible;
+  position: relative;
 }
 .watch-online__swiper .watch-online__swiper-slide .slide-info-wrapper {
   position: absolute;
@@ -768,6 +769,7 @@ main {
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
+  min-height: 35vh;
   -o-object-fit: cover;
      object-fit: cover;
   cursor: grab;
