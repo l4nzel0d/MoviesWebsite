@@ -689,6 +689,7 @@ main {
   width: 100%;
   overflow: visible;
   position: relative;
+  top: 0;
 }
 .watch-online__swiper .watch-online__swiper-slide .slide-info-wrapper {
   position: absolute;
@@ -770,6 +771,8 @@ main {
   transform: translateX(-50%);
   width: 100%;
   min-height: 35vh;
+  -o-object-fit: top;
+     object-fit: top;
   -o-object-fit: cover;
      object-fit: cover;
   cursor: grab;
@@ -946,6 +949,7 @@ main {
     min-height: 100%;
   }
   .watch-online__swiper .watch-online__swiper-slide .watch-online__swiper-slide-backdrop {
+    top: 0;
     min-height: 100%;
     width: 100%;
     -o-object-fit: cover;

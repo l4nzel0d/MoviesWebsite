@@ -11,17 +11,32 @@ function adjustSwiperHeights() {
         const slides = document.querySelectorAll('.watch-online__swiper-slide');
         const backdrops = document.querySelectorAll('.watch-online__swiper-slide-backdrop');
 
-        // Set the height of each slide
-        slides.forEach(slide => {
-            slide.style.height = `${swiperHeight}px`;
-        });
+        // Check viewport width
+        const viewportWidth = window.innerWidth;
 
-        // Set the height of each backdrop
-        backdrops.forEach(backdrop => {
-            backdrop.style.height = `${swiperHeight}px`;
-        });
+        if (viewportWidth < 576) {
+            // For viewports less than 576px, set explicit height
+            slides.forEach(slide => {
+                slide.style.height = `${swiperHeight}px`;
+            });
 
-        console.log(`Updated heights to: ${swiperHeight}px`);
+            backdrops.forEach(backdrop => {
+                backdrop.style.height = `${swiperHeight}px`;
+            });
+
+            console.log(`Updated heights for small viewport: ${swiperHeight}px`);
+        } else {
+            // For larger viewports, reset height to default (CSS-based)
+            slides.forEach(slide => {
+                slide.style.height = ''; // Removes inline style
+            });
+
+            backdrops.forEach(backdrop => {
+                backdrop.style.height = ''; // Removes inline style
+            });
+
+            console.log('Reset heights to CSS defaults for large viewport.');
+        }
     } else {
         console.error('.watch-online__swiper not found.');
     }
