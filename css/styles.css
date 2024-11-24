@@ -476,6 +476,9 @@ main {
 .celebrities-main .celebrities-wrapper .celebrities-slider-wrapper .celebrity-card .celebrity-image-wrapper .celebrity-image#Paul-Mescal-img {
   transform: scale(2) translateY(28%);
 }
+.celebrities-main .celebrities-wrapper .celebrities-slider-wrapper .celebrity-card .celebrity-image-wrapper .celebrity-image#Christopher-Nolan-img {
+  transform: scale(2) translateY(5%);
+}
 
 .sign-in-body {
   height: 100vh;
