@@ -331,8 +331,11 @@ $spacer: 1rem;
     }
 }
 
-@include media-breakpoint-up(xxl) {
+@include media-breakpoint-only(xxl) {
     #arcane-backdrop {
+        top: -10%;
+    }
+    #dunkirk-backdrop {
         top: -10%;
     }
 }
@@ -341,6 +344,10 @@ $spacer: 1rem;
     .popular-sections-block {
         gap: 0;
     }
+    #dunkirk-logo {
+        transform: translateY(-1rem);
+    }
+    
 }
 
 #we-live-in-time-logo {

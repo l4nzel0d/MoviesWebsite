@@ -983,10 +983,16 @@ main {
   #arcane-backdrop {
     top: -10%;
   }
+  #dunkirk-backdrop {
+    top: -10%;
+  }
 }
 @media (max-width: 575.98px) {
   .popular-sections-block {
     gap: 0;
+  }
+  #dunkirk-logo {
+    transform: translateY(-1rem);
   }
 }
 #we-live-in-time-logo {
