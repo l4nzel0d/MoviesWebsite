@@ -302,8 +302,13 @@ $spacer: 1rem;
     scale: 1;
     transition: all 0.3s ease !important;
 
-    &:hover {
-        scale: 1.05;
+    @media (hover: hover) {
+        &:hover {
+            scale: 1.05;
+        }
+    }
+    &:active {
+        scale: 1.02
     }
 }
 

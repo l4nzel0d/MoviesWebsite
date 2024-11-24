@@ -940,8 +940,13 @@ main {
   scale: 1;
   transition: all 0.3s ease !important;
 }
-.watch-now-button:hover {
-  scale: 1.05;
+@media (hover: hover) {
+  .watch-now-button:hover {
+    scale: 1.05;
+  }
+}
+.watch-now-button:active {
+  scale: 1.02;
 }
 
 @media (max-width: 575.98px) {
