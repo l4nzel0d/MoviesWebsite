@@ -41,7 +41,7 @@ $spacer: 1rem;
             width: 90vw;
             height: 100%;
             overflow: hidden;
-            transition: opacity 1s ease;
+            transition: opacity 1s ease 1.5s;
 
             &.hidden {
                 opacity: 0;

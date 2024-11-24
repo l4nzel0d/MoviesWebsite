@@ -165,11 +165,11 @@ def main():
                 first_result = data["results"][0]
                 project_object["id"] = str(first_result["id"])
 
-                if (
-                    project_object["id"] in reference_book_object["movie"]
-                    or project_object["id"] in reference_book_object["tv"]
-                ):
-                    continue
+                # if (
+                #     project_object["id"] in reference_book_object["movie"]
+                #     or project_object["id"] in reference_book_object["tv"]
+                # ):
+                #     continue
 
                 if "title" in first_result:
                     project_object["title"] = first_result.get("title")
@@ -208,6 +208,19 @@ def main():
                     logo_extension = logo_url_end.split(".")[-1]
                     logo_file_name = f"{PROJECTS_PATH}{project_object['id']}/{project_object["id"]}_logo_{index}.{logo_extension}"
                     save_image(logo_url, logo_file_name)
+
+                for index, backdrop_object in enumerate(images_response["backdrops"]):
+                    if index == 5:
+                        break
+                    if backdrop_object["iso_639_1"] not in [None]:
+                        continue
+
+                    backdrop_url_end = backdrop_object["file_path"]
+
+                    backdrop_url = f"https://image.tmdb.org/t/p/original{backdrop_url_end}"
+                    backdrop_extension = backdrop_url_end.split(".")[-1]
+                    backdrop_file_name = f"{PROJECTS_PATH}{project_object['id']}/{project_object["id"]}_backdrop_{index}.{backdrop_extension}"
+                    save_image(backdrop_url, backdrop_file_name)
 
                 project_object_path = (
                     f"{PROJECTS_PATH}{project_object['id']}/{project_object['id']}.json"

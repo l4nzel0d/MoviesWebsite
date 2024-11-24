@@ -723,7 +723,7 @@ main {
   width: 90vw;
   height: 100%;
   overflow: hidden;
-  transition: opacity 1s ease;
+  transition: opacity 1s ease 1.5s;
 }
 .watch-online__swiper .watch-online__swiper-slide .slide-info-wrapper.hidden {
   opacity: 0;
