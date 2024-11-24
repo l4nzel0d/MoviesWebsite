@@ -702,6 +702,11 @@ main {
   width: 90vw;
   height: 100%;
   overflow: hidden;
+  transition: opacity 1s ease;
+}
+.watch-online__swiper .watch-online__swiper-slide .slide-info-wrapper.hidden {
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 .watch-online__swiper .watch-online__swiper-slide .slide-info-wrapper .watch-online__swiper-slide-info {
   position: relative;
@@ -736,7 +741,7 @@ main {
   font-weight: 600;
 }
 .watch-online__swiper .watch-online__swiper-slide .slide-info-wrapper .watch-online__swiper-slide-info .info-strip {
-  display: flex;
+  display: block;
   gap: 1rem;
   justify-content: center;
   padding-block: 3px;
@@ -744,6 +749,7 @@ main {
   padding-inline: 1rem;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.3);
+  position: relative;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -923,10 +929,9 @@ main {
 
 .watch-now-button {
   display: flex !important;
-  gap: 1rem !important;
   align-items: center;
+  gap: 0.8rem;
   z-index: 100;
-  right: 3rem;
   padding: 0.5rem 1.5rem !important;
   text-transform: uppercase;
   font-weight: 500 !important;
@@ -954,5 +959,10 @@ main {
     width: 100%;
     -o-object-fit: cover;
        object-fit: cover;
+  }
+}
+@media (min-width: 1400px) {
+  #arcane-backdrop {
+    top: -10%;
   }
 }/*# sourceMappingURL=styles.css.map */

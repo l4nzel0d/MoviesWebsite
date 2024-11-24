@@ -33,6 +33,12 @@ $spacer: 1rem;
             width: 90vw;
             height: 100%;
             overflow: hidden;
+            transition: opacity 1s ease;
+
+            &.hidden {
+                opacity: 0;
+                transition: opacity 0.5s ease;
+            }
 
             .watch-online__swiper-slide-info {
                 position: relative;
@@ -67,7 +73,7 @@ $spacer: 1rem;
                 }
 
                 .info-strip {
-                    display: flex;
+                    display: block;
                     gap: 1rem;
                     justify-content: center;
                     padding-block: 3px;
@@ -75,6 +81,8 @@ $spacer: 1rem;
                     padding-inline: 1rem;
                     border-radius: 10px;
                     background: rgba(255, 255, 255, 0.3);
+                    position: relative;
+                    
                     backdrop-filter: blur(10px);
                     -webkit-backdrop-filter: blur(10px);
 
@@ -283,10 +291,9 @@ $spacer: 1rem;
 
 .watch-now-button {
     display: flex !important;
-    gap: 1rem !important;
     align-items: center;
+    gap: .8rem;
     z-index: 100;
-    right: 3rem;
     padding: 0.5rem 1.5rem !important;
     text-transform: uppercase;
     font-weight: 500 !important;
@@ -299,6 +306,7 @@ $spacer: 1rem;
         scale: 1.05;
     }
 }
+
 
 @include media-breakpoint-only(xs) {
     .watch-online__swiper {
@@ -318,3 +326,12 @@ $spacer: 1rem;
         }
     }
 }
+
+@include media-breakpoint-up(xxl) {
+    #arcane-backdrop {
+        top: -10%;
+    }
+}
+
+
+

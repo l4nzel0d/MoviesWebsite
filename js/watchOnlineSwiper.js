@@ -1,13 +1,33 @@
 var swiper = new Swiper(".watch-online__swiper", {
     slidesPerView: 1,
-    spaceBetween: -1,
-    // autoplay: {
-    //     delay: 2500,
-    //     disableOnInteraction: false,
-    // },
+    spaceBetween: 0,
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+    },
     loop: true,
-    // pagination: {
-    //     el: ".swiper-pagination",
-    //     clickable: true,
-    // },
+    speed: 1500,
+    on: {
+        setTranslate(swiper) {
+            console.log(1);
+            // Trigger when the slides are moving
+            swiper.slides.forEach((slide) => {
+                const info = slide.querySelector(".slide-info-wrapper");
+                if (info) {
+                    info.classList.add("hidden");
+                }
+            });
+        },
+    },
 });
+
+swiper.on("slideChange", () => {
+    console.log(0);
+    // Trigger when a slide settles into position
+    const activeSlide = swiper.slides[swiper.activeIndex];
+    const info = activeSlide.querySelector(".slide-info-wrapper");
+    if (info) {
+        info.classList.remove("hidden");
+    }
+});
+
