@@ -6,6 +6,7 @@
     width: max-content;
     color: $primary-color;
     user-select: none;
+    margin-bottom: .25 * $font-size;
 
     &::after {
         content: "";
