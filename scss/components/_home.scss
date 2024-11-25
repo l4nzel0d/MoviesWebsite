@@ -223,6 +223,10 @@ $spacer: 1rem;
     background-color: rgb(198, 198, 198);
     border-radius: 8px;
     margin: 1rem;
+
+    @include media-breakpoint-only(xs) {
+        display: none;
+    } 
 }
 
 ::-webkit-scrollbar-thumb {
@@ -237,11 +241,10 @@ $spacer: 1rem;
     }
 }
 
-.popular-sections-block {
+.below-swiper-block {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    padding-bottom: 3rem;
     margin-top: 1rem;
 }
 
@@ -345,7 +348,7 @@ $spacer: 1rem;
 }
 
 @include media-breakpoint-only(xs) {
-    .popular-sections-block {
+    .below-swiper-block {
         gap: 0;
     }
     #dunkirk-logo {
@@ -374,5 +377,51 @@ $spacer: 1rem;
 #dunkirk-slide {
     .info-strip {
         background: rgba(0, 0, 0, 0.5);
+    }
+}
+
+.section-title {
+    margin-inline-start: 1rem;
+    margin-block-end: .25rem;
+}
+
+#home-news-section {
+    .section-title {
+        @include section-title(2rem);
+    }
+    .news-line {
+        display: grid;
+        width: 100%;
+        gap: 1rem;
+        padding-inline: 1rem;
+
+        @include media-breakpoint-up(xl) {
+            grid-template-columns: repeat(4, 1fr);
+            .news-card:nth-child(n + 5) {
+                display: none;
+            }
+
+        }
+
+        @include media-breakpoint-only(lg) {
+            grid-template-columns: repeat(3, 1fr);
+            .news-card:nth-child(n + 4) {
+                display: none;
+            }
+        }
+
+        @include media-breakpoint-only(md) {
+            grid-template-columns: repeat(2, 1fr);
+            .news-card:nth-child(n + 3) {
+                display: none;
+            }
+        }
+        
+        @include media-breakpoint-only(xs) {
+            grid-template-columns: repeat(1, 1fr);
+            .news-card:nth-child(n + 2) {
+                display: none;
+            }
+        }
     }
 }
