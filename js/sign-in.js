@@ -4,7 +4,7 @@ const initializeButtons = () => {
     const mainPageButtons = formMainPage.querySelectorAll(".sign-in-form-button");
     const goBackButton = document.getElementById("go-back-button");
 
-    // Function to toggle visibility of forms
+    // Function to toggle visibility of form pages
     const showPage = (pageToShow, pageToHide) => {
         pageToShow.classList.remove("is-hidden");
         pageToShow.classList.add("is-visible");
